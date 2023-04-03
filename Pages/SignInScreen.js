@@ -2,11 +2,10 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, View ,TextInput,TouchableOpacity,Image} from 'react-native';
 import { Text } from 'react-native';
-import {  createUserWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, updateCurrentUser } from "firebase/auth";
 import auth from '../firebase';
 import { useState } from 'react';
 
-<<<<<<< HEAD
 export default function SignIn({navigation}) {
   const [email, setEmail] = useState('');
  
@@ -17,41 +16,22 @@ export default function SignIn({navigation}) {
   const handleSignIn = ()=>{
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-     navigation.navigate("Screen");
+     navigation.navigate("WelcomeScreen");
       
       const user = userCredential.user;
-=======
-export default function RegisterScreen({navigation}) {
-    const user = auth.currentUser;
-    const[email , setEmail]=useState('');
-    const[password , setPassword]=useState('');
-    const handleSignUp = ()=>{
-      createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      navigation.navigate("WelcomeScreen");
-      
-      console.log("done")
-        const user = userCredential.user;
->>>>>>> 806279fadc12eeb9b071c1a70b8497c3a0d8ae69
       // ...
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-<<<<<<< HEAD
       alert("The User Not Found")
     });
   }
-=======
-      alert("Can not Creat this account may be you have an account with name " );
-    });
-    }
->>>>>>> 806279fadc12eeb9b071c1a70b8497c3a0d8ae69
   return (
     <View style={styles.container}>
        <Image style={styles.image} source={require("../assets/photo.png")} ></Image>
       {/* <image source={require("../assets/cover.png")}/> */}
-<<<<<<< HEAD
+
       
       <TouchableOpacity style={styles.button} onPress={handleSignIn}   >
       <text style={styles.statmentButton} >Sign In</text>
@@ -81,7 +61,7 @@ export default function RegisterScreen({navigation}) {
       
       <View > 
     
-<TouchableOpacity style={styles.loginBtn} onPress={()=>navigation.navigate("Home")}>
+<TouchableOpacity style={styles.loginBtn} onPress={()=>navigation.navigate("HomeScreen")}>
       <Text style={styles.Text}>Home  </Text> 
     </TouchableOpacity>
    
@@ -89,17 +69,17 @@ export default function RegisterScreen({navigation}) {
       <Text style={styles.Text}>LOGIN</Text> 
     </TouchableOpacity>  */}
     
-    <TouchableOpacity style={styles.loginBtn}   onPress={()=>navigation.navigate("SignUp")}>
+    {/* <TouchableOpacity style={styles.loginBtn}   onPress={()=>navigation.navigate("SignUp")}>
       <Text style={styles.Text}>SignUp </Text> 
-    </TouchableOpacity> 
+    </TouchableOpacity>  */}
    
     
     </View> 
-=======
-      <TouchableOpacity style={styles.button}
-        onPress={handleSignUp}>
+
+      {/* <TouchableOpacity style={styles.button}
+        onPress={handleSignIp}>
       <text style={styles.statmentButton}>SignIn</text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
       
       <TextInput
         style={styles.inputE}
@@ -118,7 +98,7 @@ export default function RegisterScreen({navigation}) {
       />
      <StatusBar style="auto" />
       
->>>>>>> 806279fadc12eeb9b071c1a70b8497c3a0d8ae69
+
     </View>
   );
 }
@@ -136,7 +116,7 @@ const styles = StyleSheet.create({
         height: 1080 ,
         position: 'absolute',
       },
-<<<<<<< HEAD
+
       inputView: {
         backgroundColor: "#AEDEFE",
         borderRadius: 20,
@@ -146,8 +126,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
       },
      
-=======
->>>>>>> 806279fadc12eeb9b071c1a70b8497c3a0d8ae69
+
       input: {
         borderRadius:50,
         height: 40,
@@ -170,9 +149,9 @@ const styles = StyleSheet.create({
         right: 50,
         bottom: 300,
       },
-<<<<<<< HEAD
-      });
-=======
+
+     
+
       statmentButton: {
         color: '#000',
         fontFamily:'italic',
@@ -207,4 +186,4 @@ const styles = StyleSheet.create({
         height: 50,
   },
 });
->>>>>>> 806279fadc12eeb9b071c1a70b8497c3a0d8ae69
+
