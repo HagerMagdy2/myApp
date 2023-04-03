@@ -21,7 +21,8 @@ export default function RegisterScreen({navigation}) {
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      alert("Can not Creat this account may be you have an account with name " );
+      // alert("Can not Creat this account may be you have an account with name " );
+      console.log(errorMessage);
     });
     }
   return (
