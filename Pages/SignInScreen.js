@@ -9,60 +9,59 @@ import auth from '../firebase';
 import { useState } from 'react';
 
 export default function SignIn({navigation}) {
-  const hundelSignIn =()=>{
+  const [email, setEmail] = useState('');
+ 
+  
+  const [password, setPassword] = useState('');
+  const user = auth.currentUser;
+  
+  const handleSignIn = ()=>{
     signInWithEmailAndPassword(auth, email, password)
-.then((userCredential) => {
-  // Signed in 
-  console.log("done sign")
-
-  const user = userCredential.user;
-  // ...
-})
-.catch((error) => {
-  const errorCode = error.code;
-  const errorMessage = error.message;
-  console.log(errorMessage)
-});}
-
+    .then((userCredential) => {
+     navigation.navigate("Screen");
+      
+      const user = userCredential.user;
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      alert("The User Not Found")
+    });
+  }
   return (
     <View style={styles.container}>
        <Image style={styles.image} source={require("../assets/photo.png")} ></Image>
       {/* <image source={require("../assets/cover.png")}/> */}
       
-
+      <TouchableOpacity style={styles.button} onPress={handleSignIn}   >
+      <text style={styles.statmentButton} >Sign In</text>
+      </TouchableOpacity>
       <StatusBar style="auto" /> 
       
-      <View style={styles.inputView}>
-        <TextInput
-          style={styles.TextInput}
-          placeholder="Email.  "
-       //   value={email}
-          placeholderTextColor="#000"
-      //    onChangeText={setEmail}
-        /> 
-      </View> 
-      <View style={styles.inputView}>
-        <TextInput
-          style={styles.TextInput}
-          placeholder="Password "
-        //  value={password}
-
-          placeholderTextColor="#000"
-          secureTextEntry={true}
-         // onChangeText= {setPassword}
-         
-          
-        /> 
+      <TextInput
+        style={styles.inputE}
+        onChangeText={setEmail}
+        value={email}
+        placeholder="Enter Your E-Mail"
+        keyboardType='email-address'
+      />
+      <TextInput
+        style={styles.input}
+        onChangeText={setPassword}
+        value={password}
+        placeholder="Enter Your Password"
+        keyboardType='visible-password'
+        secureTextEntry
+      />
         
       <TouchableOpacity onPress={() => navigation.navigate("Forgot")}>
         <Text style={styles.forgot_button}>Forgot Password?</Text> 
       </TouchableOpacity>
-      </View> 
+      
       
       <View > 
-    <TouchableOpacity style={styles.loginBtn}   onPress={hundelSignIn }>
-      <Text style={styles.Text}>SignIn  </Text> 
-    </TouchableOpacity> 
+    
 <TouchableOpacity style={styles.loginBtn} onPress={()=>navigation.navigate("Home")}>
       <Text style={styles.Text}>Home  </Text> 
     </TouchableOpacity>
@@ -72,7 +71,7 @@ export default function SignIn({navigation}) {
     </TouchableOpacity>  */}
     
     <TouchableOpacity style={styles.loginBtn}   onPress={()=>navigation.navigate("SignUp")}>
-      <Text style={styles.Text}>SignUp          </Text> 
+      <Text style={styles.Text}>SignUp </Text> 
     </TouchableOpacity> 
    
     
@@ -103,17 +102,27 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         alignItems: "center",
       },
-      TextInput: {
+     
+      input: {
+        borderRadius:50,
         height: 40,
-        flex: 1,
-       // padding: 10,
-       // marginLeft: 10,
-        fontSize: 16,
-        fontWeight: 'normal',
-        forgot_button: {
-          color :"#083EF8",
-          height: 30,
-          marginBottom: 30,
-        },
-      }
+        width: 400,
+        margin: 12,
+        borderWidth: 0.5,
+        padding: 5,
+        position: 'absolute',
+        right: 50,
+        bottom: 220,
+      },
+      inputE: {
+        borderRadius:50,
+        height: 40,
+        width: 400,
+        margin: 12,
+        borderWidth: 0.5,
+        padding: 5,
+        position: 'absolute',
+        right: 50,
+        bottom: 300,
+      },
       });
