@@ -11,7 +11,7 @@ export default function RegisterScreen({navigation}) {
     <View style={styles.container}>
        <Image style={styles.image} source={require("../assets/photo.png")} ></Image>
       {/* <image source={require("../assets/cover.png")}/> */}
-      <TouchableOpacity onPress={()=>navigation.navigate("Welcome")} >
+      <TouchableOpacity onPress={()=>navigation.navigate("SignIn")} >
       <text >SIGN IN</text>
       
       </TouchableOpacity>
