@@ -6,21 +6,6 @@ import {  createUserWithEmailAndPassword } from "firebase/auth";
 import auth from '../firebase';
 import { useState } from 'react';
 
-<<<<<<< HEAD
-export default function SignIn({navigation}) {
-  const [email, setEmail] = useState('');
- 
-  
-  const [password, setPassword] = useState('');
-  const user = auth.currentUser;
-  
-  const handleSignIn = ()=>{
-    signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-     navigation.navigate("Screen");
-      
-      const user = userCredential.user;
-=======
 export default function RegisterScreen({navigation}) {
     const user = auth.currentUser;
     const[email , setEmail]=useState('');
@@ -32,70 +17,18 @@ export default function RegisterScreen({navigation}) {
       
       console.log("done")
         const user = userCredential.user;
->>>>>>> 806279fadc12eeb9b071c1a70b8497c3a0d8ae69
       // ...
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-<<<<<<< HEAD
-      alert("The User Not Found")
-    });
-  }
-=======
       alert("Can not Creat this account may be you have an account with name " );
     });
     }
->>>>>>> 806279fadc12eeb9b071c1a70b8497c3a0d8ae69
   return (
     <View style={styles.container}>
        <Image style={styles.image} source={require("../assets/photo.png")} ></Image>
       {/* <image source={require("../assets/cover.png")}/> */}
-<<<<<<< HEAD
-      
-      <TouchableOpacity style={styles.button} onPress={handleSignIn}   >
-      <text style={styles.statmentButton} >Sign In</text>
-      </TouchableOpacity>
-      <StatusBar style="auto" /> 
-      
-      <TextInput
-        style={styles.inputE}
-        onChangeText={setEmail}
-        value={email}
-        placeholder="Enter Your E-Mail"
-        keyboardType='email-address'
-      />
-      <TextInput
-        style={styles.input}
-        onChangeText={setPassword}
-        value={password}
-        placeholder="Enter Your Password"
-        keyboardType='visible-password'
-        secureTextEntry
-      />
-        
-      <TouchableOpacity onPress={() => navigation.navigate("Forgot")}>
-        <Text style={styles.forgot_button}>Forgot Password?</Text> 
-      </TouchableOpacity>
-      
-      
-      <View > 
-    
-<TouchableOpacity style={styles.loginBtn} onPress={()=>navigation.navigate("Home")}>
-      <Text style={styles.Text}>Home  </Text> 
-    </TouchableOpacity>
-   
-    {/* <TouchableOpacity style={styles.loginBtn} onPress={()=>navigation.navigat("LogIn")}>
-      <Text style={styles.Text}>LOGIN</Text> 
-    </TouchableOpacity>  */}
-    
-    <TouchableOpacity style={styles.loginBtn}   onPress={()=>navigation.navigate("SignUp")}>
-      <Text style={styles.Text}>SignUp </Text> 
-    </TouchableOpacity> 
-   
-    
-    </View> 
-=======
       <TouchableOpacity style={styles.button}
         onPress={handleSignUp}>
       <text style={styles.statmentButton}>SignIn</text>
@@ -118,7 +51,6 @@ export default function RegisterScreen({navigation}) {
       />
      <StatusBar style="auto" />
       
->>>>>>> 806279fadc12eeb9b071c1a70b8497c3a0d8ae69
     </View>
   );
 }
@@ -136,18 +68,6 @@ const styles = StyleSheet.create({
         height: 1080 ,
         position: 'absolute',
       },
-<<<<<<< HEAD
-      inputView: {
-        backgroundColor: "#AEDEFE",
-        borderRadius: 20,
-        width: "70%",
-        height: 45,
-        marginBottom: 20,
-        alignItems: "center",
-      },
-     
-=======
->>>>>>> 806279fadc12eeb9b071c1a70b8497c3a0d8ae69
       input: {
         borderRadius:50,
         height: 40,
@@ -170,9 +90,6 @@ const styles = StyleSheet.create({
         right: 50,
         bottom: 300,
       },
-<<<<<<< HEAD
-      });
-=======
       statmentButton: {
         color: '#000',
         fontFamily:'italic',
@@ -207,4 +124,3 @@ const styles = StyleSheet.create({
         height: 50,
   },
 });
->>>>>>> 806279fadc12eeb9b071c1a70b8497c3a0d8ae69
