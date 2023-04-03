@@ -9,6 +9,7 @@ export default function ForgotPass({navigation}) {
   
   return (
     <View >
+      <Text style={styles.title}> FORGET PASSWORD?</Text>
        <Image style={styles.image} source={require("../assets/photo.png")} ></Image>
       {/* <image source={require("../assets/cover.png")}/> */}
       <TouchableOpacity  onPress={ ""}  style={styles.Sendbutton}>
@@ -57,5 +58,10 @@ const styles = StyleSheet.create({
        
        
       },
+      title:{
+        fontWeight:"bold",
+        fontSize:50,
+        
+      }
 
 });

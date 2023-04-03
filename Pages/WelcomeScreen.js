@@ -1,12 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, View, TextInput, TouchableOpacity, Image } from 'react-native';
-import { Text } from 'react-native';
-
-import sora from "../assets/cover.png";
+//import { Text } from 'react-native';
 
 export default function HomeScreen({ navigation }) {
-   
+
     return (
         <View style={styles.container}>
 
@@ -28,8 +26,8 @@ const styles = StyleSheet.create({
     image: {
         //flex: 1,
         //justifyContent: 'center',
-        width:600,
-        height: 1080 ,
+        width: 600,
+        height: 1080,
         position: 'absolute',
-      },
+    },
 });
