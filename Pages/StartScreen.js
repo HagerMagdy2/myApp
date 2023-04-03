@@ -1,9 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, View, TextInput, TouchableOpacity, Image, PixelRatio } from 'react-native';
-import { Text } from 'react-native';
-
-import sora from "../assets/cover.png";
+//import { Text } from 'react-native';
 
 export default function StartScreen({ navigation }) {
 
