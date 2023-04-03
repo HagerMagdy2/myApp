@@ -8,15 +8,13 @@ import { useState } from 'react';
 
 export default function SignIn({navigation}) {
   const [email, setEmail] = useState('');
- 
-  
   const [password, setPassword] = useState('');
   const user = auth.currentUser;
   
   const handleSignIn = ()=>{
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-     navigation.navigate("WelcomeScreen");
+     navigation.navigate("Welcome");
       
       const user = userCredential.user;
       // ...
@@ -81,21 +79,7 @@ export default function SignIn({navigation}) {
       <text style={styles.statmentButton}>SignIn</text>
       </TouchableOpacity> */}
       
-      <TextInput
-        style={styles.inputE}
-        onChangeText={setEmail}
-        value={email}
-        placeholder="Enter Your E-Mail"
-        keyboardType='email-address'
-      />
-<TextInput
-        style={styles.input}
-        onChangeText={setPassword}
-        value={password}
-        placeholder="Enter Your Password"
-        keyboardType='visible-password'
-        secureTextEntry
-      />
+      
      <StatusBar style="auto" />
       
 

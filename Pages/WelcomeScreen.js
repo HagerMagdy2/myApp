@@ -11,7 +11,7 @@ export default function HomeScreen({ navigation }) {
         <View style={styles.container}>
 
             <text >SIGN IN</text>
-
+            <Image style={styles.image} source={require("../assets/photo.png")} ></Image>
             <StatusBar style="auto" />
 
 
