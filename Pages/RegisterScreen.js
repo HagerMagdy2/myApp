@@ -13,7 +13,7 @@ export default function RegisterScreen({navigation}) {
     const handleSignUp = ()=>{
       createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      navigation.navigate("WelcomeScreen");
+      navigation.navigate("Welcome");
       
       console.log("done")
         const user = userCredential.user;
@@ -22,7 +22,8 @@ export default function RegisterScreen({navigation}) {
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      alert("Can not Creat this account may be you have an account with name " );
+      // alert("Can not Creat this account may be you have an account with name " );
+      console.log(errorMessage);
     });
     }
   return (
