@@ -9,7 +9,7 @@ export default function HomeScreen({navigation}) {
  
   return (
     <View style={styles.container}>
-       <Image style={styles.image} source={require("../assets/cover.png")} ></Image>
+       <Image style={styles.image} source={require("../assets/photo.png")} ></Image>
       {/* <image source={require("../assets/cover.png")}/> */}
      
 

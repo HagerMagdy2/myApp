@@ -9,7 +9,7 @@ export default function ForgotPass({navigation}) {
   
   return (
     <View >
-       <Image style={styles.image} source={require("../assets/cover.png")} ></Image>
+       <Image style={styles.image} source={require("../assets/photo.png")} ></Image>
       {/* <image source={require("../assets/cover.png")}/> */}
      
        <StatusBar style="auto" /> 

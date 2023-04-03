@@ -6,11 +6,10 @@ import { Text } from 'react-native';
 import sora from "../assets/cover.png";
 
 export default function RegisterScreen({navigation}) {
-  const [number, onChangeNumber] = React.useState('');
-  const [number2, onchangeNumber] = React.useState('');
+  
   return (
     <View style={styles.container}>
-       <Image style={styles.image} source={require("../assets/cover.png")} ></Image>
+       <Image style={styles.image} source={require("../assets/photo.png")} ></Image>
       {/* <image source={require("../assets/cover.png")}/> */}
       <TouchableOpacity onPress={()=>navigation.navigate("Welcome")} >
       <text >SIGN IN</text>

@@ -6,8 +6,7 @@ import { Text } from 'react-native';
 import sora from "../assets/cover.png";
 
 export default function HomeScreen({ navigation }) {
-    const [number, onChangeNumber] = React.useState('');
-    const [number2, onchangeNumber] = React.useState('');
+   
     return (
         <View style={styles.container}>
 
