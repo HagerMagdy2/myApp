@@ -4,8 +4,9 @@ import { StyleSheet, View ,TextInput, Button,
   TouchableOpacity,
   Pressable,Image} from 'react-native';
 import { Text } from 'react-native';
-
-import sora from "../assets/cover.png";
+import { signInWithEmailAndPassword, updateCurrentUser } from "firebase/auth";
+import auth from '../firebase';
+import { useState } from 'react';
 
 export default function SignIn({navigation}) {
   const hundelSignIn =()=>{
@@ -53,17 +54,17 @@ export default function SignIn({navigation}) {
           
         /> 
         
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate("Forgot")}>
         <Text style={styles.forgot_button}>Forgot Password?</Text> 
       </TouchableOpacity>
       </View> 
       
       <View > 
     <TouchableOpacity style={styles.loginBtn}   onPress={hundelSignIn }>
-      <Text style={styles.Text}>SignIn            </Text> 
+      <Text style={styles.Text}>SignIn  </Text> 
     </TouchableOpacity> 
 <TouchableOpacity style={styles.loginBtn} onPress={()=>navigation.navigate("Home")}>
-      <Text style={styles.Text}>Home             </Text> 
+      <Text style={styles.Text}>Home  </Text> 
     </TouchableOpacity>
    
     {/* <TouchableOpacity style={styles.loginBtn} onPress={()=>navigation.navigat("LogIn")}>
