@@ -3,7 +3,7 @@ import React from 'react';
 import { StyleSheet, View ,TextInput,TouchableOpacity,Image} from 'react-native';
 import { Text } from 'react-native';
 
-import sora from "../assets/cover.png";
+
 
 export default function ForgotPass({navigation}) {
   
