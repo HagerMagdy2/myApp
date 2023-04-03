@@ -1,83 +1,56 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, View ,TextInput, Button,
-  TouchableOpacity,
-  Pressable,Image} from 'react-native';
+import { StyleSheet, View ,TextInput,TouchableOpacity,Image} from 'react-native';
 import { Text } from 'react-native';
+import {  createUserWithEmailAndPassword } from "firebase/auth";
+import auth from '../firebase';
+import { useState } from 'react';
 
-import sora from "../assets/cover.png";
-
-export default function SignIn({navigation}) {
-  const hundelSignIn =()=>{
-    signInWithEmailAndPassword(auth, email, password)
-.then((userCredential) => {
-  // Signed in 
-  console.log("done sign")
-
-  const user = userCredential.user;
-  // ...
-})
-.catch((error) => {
-  const errorCode = error.code;
-  const errorMessage = error.message;
-  console.log(errorMessage)
-});}
-
+export default function SignInScreen({navigation}) {
+    const user = auth.currentUser;
+    const[email , setEmail]=useState('');
+    const[password , setPassword]=useState('');
+    const handleSignUp = ()=>{
+      createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      navigation.navigate("WelcomeScreen");
+      
+      const user = userCredential.user;
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      alert("Can not Creat this account may be you have an account with name " );
+    });
+    }
   return (
     <View style={styles.container}>
        <Image style={styles.image} source={require("../assets/photo.png")} ></Image>
       {/* <image source={require("../assets/cover.png")}/> */}
-      
-
-      <StatusBar style="auto" /> 
-      
-      <View style={styles.inputView}>
-        <TextInput
-          style={styles.TextInput}
-          placeholder="Email.  "
-       //   value={email}
-          placeholderTextColor="#000"
-      //    onChangeText={setEmail}
-        /> 
-      </View> 
-      <View style={styles.inputView}>
-        <TextInput
-          style={styles.TextInput}
-          placeholder="Password "
-        //  value={password}
-
-          placeholderTextColor="#000"
-          secureTextEntry={true}
-         // onChangeText= {setPassword}
-         
-          
-        /> 
-        
-      <TouchableOpacity>
-        <Text style={styles.forgot_button}>Forgot Password?</Text> 
+      <TouchableOpacity style={styles.button}
+        onPress={handleSignUp}>
+      <text style={styles.statmentButton}>SignIn</text>
       </TouchableOpacity>
-      </View> 
       
-      <View > 
-    <TouchableOpacity style={styles.loginBtn}   onPress={hundelSignIn }>
-      <Text style={styles.Text}>SignIn            </Text> 
-    </TouchableOpacity> 
-<TouchableOpacity style={styles.loginBtn} onPress={()=>navigation.navigate("Home")}>
-      <Text style={styles.Text}>Home             </Text> 
-    </TouchableOpacity>
-   
-    {/* <TouchableOpacity style={styles.loginBtn} onPress={()=>navigation.navigat("LogIn")}>
-      <Text style={styles.Text}>LOGIN</Text> 
-    </TouchableOpacity>  */}
-    
-    <TouchableOpacity style={styles.loginBtn}   onPress={()=>navigation.navigate("SignUp")}>
-      <Text style={styles.Text}>SignUp          </Text> 
-    </TouchableOpacity> 
-   
-    
-    </View> 
+      <TextInput
+        style={styles.inputE}
+        onChangeText={setEmail}
+        value={email}
+        placeholder="Enter Your E-Mail"
+        keyboardType='email-address'
+      />
+<TextInput
+        style={styles.input}
+        onChangeText={setPassword}
+        value={password}
+        placeholder="Enter Your Password"
+        keyboardType='visible-password'
+        secureTextEntry
+      />
+     <StatusBar style="auto" />
+      
     </View>
-    
   );
 }
 const styles = StyleSheet.create({
@@ -94,25 +67,59 @@ const styles = StyleSheet.create({
         height: 1080 ,
         position: 'absolute',
       },
-      inputView: {
-        backgroundColor: "#AEDEFE",
-        borderRadius: 20,
-        width: "70%",
-        height: 45,
-        marginBottom: 20,
-        alignItems: "center",
-      },
-      TextInput: {
+      input: {
+        borderRadius:50,
         height: 40,
-        flex: 1,
-       // padding: 10,
-       // marginLeft: 10,
-        fontSize: 16,
-        fontWeight: 'normal',
-        forgot_button: {
-          color :"#083EF8",
-          height: 30,
-          marginBottom: 30,
-        },
-      }
-      });
+        width: 400,
+        margin: 12,
+        borderWidth: 0.5,
+        padding: 5,
+        position: 'absolute',
+        right: 50,
+        bottom: 220,
+      },
+      inputE: {
+        borderRadius:50,
+        height: 40,
+        width: 400,
+        margin: 12,
+        borderWidth: 0.5,
+        padding: 5,
+        position: 'absolute',
+        right: 50,
+        bottom: 300,
+      },
+      statmentButton: {
+        color: '#000',
+        fontFamily:'italic',
+        
+        fontWeight: 'bold',
+        fontSize: 25,
+        alignSelf: 'center',
+        paddingHorizontal: 8,
+        paddingVertical: 6,
+        borderRadius: 15,
+        marginBottom: 5,
+        minWidth: '50%',
+        textAlign: 'center',
+        position: 'relative',
+        bottom: 0,
+       // right: 50,
+  },
+  button: {
+    paddingHorizontal: 8,
+        paddingVertical: 6,
+        borderRadius: 50,
+        backgroundColor: '#713522',
+        alignSelf: 'auto',
+        //marginHorizontal: '1%',
+        marginBottom: 6,
+        minWidth: '30%',
+        textAlign: 'center',
+        position: 'absolute',
+        bottom: 100,
+        right: 205,
+        width: 45,
+        height: 50,
+  },
+});

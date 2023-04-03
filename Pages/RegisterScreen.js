@@ -15,7 +15,8 @@ export default function RegisterScreen({navigation}) {
     .then((userCredential) => {
       navigation.navigate("WelcomeScreen");
       
-      const user = userCredential.user;
+      console.log("done")
+        const user = userCredential.user;
       // ...
     })
     .catch((error) => {
