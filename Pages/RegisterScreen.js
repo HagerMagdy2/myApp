@@ -13,7 +13,7 @@ export default function RegisterScreen({navigation}) {
     const handleSignUp = ()=>{
       createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      navigation.navigate("WelcomeScreen");
+      navigation.navigate("Welcome");
       
       console.log("done")
         const user = userCredential.user;
