@@ -6,10 +6,10 @@ import {  createUserWithEmailAndPassword } from "firebase/auth";
 import auth from '../firebase';
 import { useState } from 'react';
 
-export default function RegisterScreen({navigation}) {
+export default function ForgotPass({navigation}) {
     const user = auth.currentUser;
     const[email , setEmail]=useState('');
-    const[password , setPassword]=useState('');
+    //const[password , setPassword]=useState('');
     const handleSignUp = ()=>{
       createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
