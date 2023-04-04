@@ -37,7 +37,7 @@ sendPasswordResetEmail(auth, Email)
         keyboardType='email-address'
       />
   <TouchableOpacity style={styles.Sendbutton} onPress={handleForgotPassword}>
-            <Text style={styles.buttonText}>Send Link</Text>          
+            <Text style={styles.statmentButton}>Send Link</Text>          
           </TouchableOpacity>
           {/* <TouchableOpacity style={styles.button} onPress={handleSignIn}>
             <Text style={styles.buttonText}>Back to Sign in</Text>
@@ -86,6 +86,7 @@ const styles = StyleSheet.create({
     statmentButton: {
       color: '#FFFCF8',
       fontFamily:'italic',
+      fontSize:20,
       
       fontWeight: 'bold',
 },
@@ -113,4 +114,5 @@ right:150,
 
 
 },
+
 });

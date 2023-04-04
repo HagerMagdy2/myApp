@@ -18,7 +18,7 @@ export default function HomeScreen({ navigation }) {
    
     return (
         <View style={styles.container}>
-             <Image style={styles.image} source={require("../assets/welcome.jpg")} ></Image>
+             <Image style={styles.image} source={require("../assets/we.jpg")} ></Image>
 <View>
 
             {/* <text style={styles.statmentButton} >Welcome</text> */}
@@ -117,10 +117,10 @@ const styles = StyleSheet.create({
        
       },
       statButton: {
-        color: '#583737',
+        color: '#6E4009',
         fontFamily:'italic',
         
-        top:100,
+        top:55,
         fontWeight: 'bold',
         fontSize: 25,
         alignSelf: 'center',
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
         minWidth: '50%',
         textAlign: 'center',
         position: 'relative',
-        bottom:     0,
+        bottom: 100,
        // right: 50,
     
 },
