@@ -136,6 +136,6 @@ const styles = StyleSheet.create({
         position: 'relative',
         bottom:     0,
        // right: 50,
-   
+    
 },
 });
