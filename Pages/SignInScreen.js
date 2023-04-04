@@ -203,6 +203,6 @@ forgot_button: {
   //textAlign: 'center',
   position: 'relative',
   top:300,
- // right: 50,
+ // right: 50,
 },
 });
