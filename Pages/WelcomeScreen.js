@@ -4,8 +4,17 @@ import { StyleSheet, View, TextInput, TouchableOpacity, Image } from 'react-nati
 import { Text } from 'react-native';
 import auth from '../firebase';
 import sora from "../assets/cover.png";
+import { signOut } from "firebase/auth";
 
 export default function HomeScreen({ navigation }) {
+  const handleSignOut = ()=>{
+    signOut(auth).then(() => {
+      // Sign-out successful.
+      navigation.navigate("HomeScreen");
+    }).catch((error) => {
+      // An error happened.
+    });
+  }
    
     return (
         <View style={styles.container}>
@@ -18,7 +27,7 @@ export default function HomeScreen({ navigation }) {
 
         </View>
         <View>
-        <TouchableOpacity  onPress={()=>navigation.navigate("StartScreen")}  style={styles.SignInbutton}>
+        <TouchableOpacity onPress={handleSignOut}  style={styles.SignInbutton}>
       <Text style={styles.statmentButton}>SignOut  </Text> 
     </TouchableOpacity>
    
@@ -123,7 +132,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         position: 'relative',
         bottom:     0,
-       // right: 50,
-    
+       // right: 50,
+
 },
 });
