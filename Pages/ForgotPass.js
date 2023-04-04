@@ -86,13 +86,14 @@ const styles = StyleSheet.create({
     statmentButton: {
       color: '#FFFCF8',
       fontFamily:'italic',
-      fontSize : 23,
+      fontSize:20,
+      
       fontWeight: 'bold',
 },
 
 Sendbutton:{
       
-  width: "78%",
+  width: "50%",
   borderRadius: 20,
   height: 50,
   alignItems: "center",
@@ -113,4 +114,5 @@ right:150,
 
 
 },
+
 });
