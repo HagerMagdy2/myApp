@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         position: 'relative',
         bottom:     0,
-       // right: 50,
-
+       // right: 50,
+    
 },
 });
