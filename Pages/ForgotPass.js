@@ -10,7 +10,6 @@ export default function ForgotPass({navigation}) {
   return (
     <View >
        <Image style={styles.image} source={require("../assets/forget.jpg")} ></Image>
-      {/* <image source={require("../assets/cover.png")}/> */}
       <TouchableOpacity  onPress={ ""}  style={styles.Sendbutton}>
       <Text style={styles.statmentButton}>Send verification Link  </Text> 
     </TouchableOpacity>
