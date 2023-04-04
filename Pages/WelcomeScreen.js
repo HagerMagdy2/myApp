@@ -4,6 +4,7 @@ import { StyleSheet, View, TextInput, TouchableOpacity, Image } from 'react-nati
 import { Text } from 'react-native';
 import auth from '../firebase';
 import sora from "../assets/cover.png";
+import { signOut } from "firebase/auth";
 
 export default function HomeScreen({ navigation }) {
   const handleSignOut = ()=>{
@@ -11,7 +12,10 @@ export default function HomeScreen({ navigation }) {
       // Sign-out successful.
       navigation.navigate("HomeScreen");
     }).catch((error) => {
-      // An error happened.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // alert("Can not Creat this account may be you have an account with name " );
+      console.log(errorMessage);
     });
   }
    
