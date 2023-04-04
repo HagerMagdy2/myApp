@@ -8,27 +8,6 @@ import { useState } from 'react';
 export default function ForgetPass({navigation}){
 const[Email,setEmail]=useState('')
 
-<<<<<<< HEAD
-export default function ForgotPass({navigation}) {
-    const user = auth.currentUser;
-    const[email , setEmail]=useState('');
-    //const[password , setPassword]=useState('');
-    const handleSignUp = ()=>{
-      createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      navigation.navigate("Welcome");
-      
-      const user = userCredential.user;
-      // ...
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // alert("Can not Creat this account may be you have an account with name " );
-      console.log(errorMessage);
-    });
-    }
-=======
 const handleSignIn = () => {
     
       navigation.navigate("SignIn");
@@ -47,7 +26,6 @@ sendPasswordResetEmail(auth, Email)
     // ..
   });
 }
->>>>>>> b1700ad2b9291c788e0f47a3b5757aff5df97517
   return (
     <View style={styles.container}>
       <Image style={styles.image} source={require("../assets/Forget.jpg")} ></Image>
@@ -59,7 +37,7 @@ sendPasswordResetEmail(auth, Email)
         keyboardType='email-address'
       />
   <TouchableOpacity style={styles.Sendbutton} onPress={handleForgotPassword}>
-            <Text style={styles.buttonText}>Send Link</Text>          
+            <Text style={styles.statmentButton}>Send Link</Text>          
           </TouchableOpacity>
           {/* <TouchableOpacity style={styles.button} onPress={handleSignIn}>
             <Text style={styles.buttonText}>Back to Sign in</Text>
@@ -108,6 +86,7 @@ const styles = StyleSheet.create({
     statmentButton: {
       color: '#FFFCF8',
       fontFamily:'italic',
+      fontSize:20,
       
       fontWeight: 'bold',
 },
@@ -135,4 +114,5 @@ right:150,
 
 
 },
+
 });
