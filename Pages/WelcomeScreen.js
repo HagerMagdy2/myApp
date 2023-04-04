@@ -6,6 +6,14 @@ import auth from '../firebase';
 import sora from "../assets/cover.png";
 
 export default function HomeScreen({ navigation }) {
+  const handleSignOut = ()=>{
+    signOut(auth).then(() => {
+      // Sign-out successful.
+      navigation.navigate("HomeScreen");
+    }).catch((error) => {
+      // An error happened.
+    });
+  }
    
     return (
         <View style={styles.container}>
@@ -18,7 +26,7 @@ export default function HomeScreen({ navigation }) {
 
         </View>
         <View>
-        <TouchableOpacity  onPress={()=>navigation.navigate("StartScreen")}  style={styles.SignInbutton}>
+        <TouchableOpacity onPress={handleSignOut}  style={styles.SignInbutton}>
       <Text style={styles.statmentButton}>SignOut  </Text> 
     </TouchableOpacity>
    

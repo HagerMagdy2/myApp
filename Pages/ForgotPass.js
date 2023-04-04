@@ -110,6 +110,6 @@ const styles = StyleSheet.create({
 right:150,
     width:350,
 
-  },
+},
 
 });
