@@ -27,7 +27,7 @@ export default function RegisterScreen({navigation}) {
     }
   return (
     <View style={styles.container}>
-       <Image style={styles.image} source={require("../assets/photo.png")} ></Image>
+      <Image style={styles.image} source={require("../assets/Register.jpg")} ></Image>
       {/* <image source={require("../assets/cover.png")}/> */}
       <TouchableOpacity style={styles.button}
         onPress={handleSignUp}>
@@ -49,7 +49,7 @@ export default function RegisterScreen({navigation}) {
         keyboardType='visible-password'
         secureTextEntry
       />
-     <StatusBar style="auto" />
+    <StatusBar style="auto" />
       
     </View>
   );
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
         bottom: 300,
       },
       statmentButton: {
-        color: '#000',
+        color: '#FFFCF8',
         fontFamily:'italic',
         
         fontWeight: 'bold',
@@ -122,5 +122,5 @@ const styles = StyleSheet.create({
         right: 205,
         width: 45,
         height: 50,
-  },
+},
 });
