@@ -26,14 +26,9 @@ export default function RegisterScreen({navigation}) {
     });
     }
   return (
-<<<<<<< HEAD
-    <View >
-       <Image style={styles.image} source={require("../assets/forget.jpg")} ></Image>
-=======
     <View style={styles.container}>
       <Image style={styles.image} source={require("../assets/Forget.jpg")} ></Image>
       {/* <image source={require("../assets/cover.png")}/> */}
->>>>>>> ed384b779d69e7edc149edd16fc2f8cf172fa5e8
       <TouchableOpacity  onPress={ ""}  style={styles.Sendbutton}>
       <Text style={styles.statmentButton}>Send verification Link  </Text> 
     </TouchableOpacity>
@@ -115,6 +110,6 @@ const styles = StyleSheet.create({
 right:150,
     width:350,
 
-},
+  },
 
 });
