@@ -22,7 +22,7 @@ export default function SignIn({navigation}) {
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      alert("The User Not Found")
+      alert("The User Not Found");
     });
   }
   return (
