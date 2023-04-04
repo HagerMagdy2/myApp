@@ -6,22 +6,22 @@ import { Text } from 'react-native';
 
 
 export default function HomeScreen({navigation}) {
- 
+
   return (
     <View style={styles.container}>
-       <Image style={styles.image} source={require("../assets/photo.png")} ></Image>
+    <Image style={styles.image} source={require("../assets/Homee.jpg")} ></Image>
       {/* <image source={require("../assets/cover.png")}/> */}
-     
+    
       <View > 
 
 <TouchableOpacity  onPress={()=>navigation.navigate("SignIn")}  style={styles.SignInbutton}>
       <Text style={styles.statmentButton}>SignIn  </Text> 
     </TouchableOpacity>
-   
+
     <TouchableOpacity  onPress={()=>navigation.navigate("Register")}  style={styles.Registerbutton}>
       <Text style={styles.statmentButton}>Register </Text> 
     </TouchableOpacity> 
-   
+
     
     </View> 
     </View>
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
         height: 1080 ,
         position: 'absolute',
       },
-       Registerbutton:{
+    Registerbutton:{
         width: "50%",
         alignItems: "center",
         justifyContent: "center",
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
         minWidth: '30%',
         textAlign: 'center',
         position: 'absolute',
-         bottom: -200,
+         bottom: -300,
          right: -100,
         width: 130,
         height:50,
@@ -82,14 +82,14 @@ const styles = StyleSheet.create({
         minWidth: '30%',
         textAlign: 'center',
         position: 'absolute',
-         bottom: -300,
+         bottom: -400,
          right: -100,
         width: 130,
        
        
       },
       statmentButton: {
-        color: '#000',
+        color: '#FFFCF8',
         fontFamily:'italic',
         
         fontWeight: 'bold',

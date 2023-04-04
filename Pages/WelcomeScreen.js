@@ -6,23 +6,31 @@ import auth from '../firebase';
 import sora from "../assets/cover.png";
 
 export default function HomeScreen({ navigation }) {
+  const handleSignOut = ()=>{
+    signOut(auth).then(() => {
+      // Sign-out successful.
+      navigation.navigate("HomeScreen");
+    }).catch((error) => {
+      // An error happened.
+    });
+  }
    
     return (
         <View style={styles.container}>
-             <Image style={styles.image} source={require("../assets/photo.png")} ></Image>
+             <Image style={styles.image} source={require("../assets/welcome.jpg")} ></Image>
 <View>
 
-            <text style={styles.statmentButton} >Welcome</text>
-<Text style={styles.statmentButton}> {auth.currentUser?.email}</Text>
+            {/* <text style={styles.statmentButton} >Welcome</text> */}
+<Text style={styles.statButton}> {auth.currentUser?.email}</Text>
             <StatusBar style="auto" />
 
         </View>
         <View>
-        <TouchableOpacity  onPress={()=>navigation.navigate("StartScreen")}  style={styles.SignInbutton}>
+        <TouchableOpacity onPress={handleSignOut}  style={styles.SignInbutton}>
       <Text style={styles.statmentButton}>SignOut  </Text> 
     </TouchableOpacity>
    
-    <TouchableOpacity  onPress={()=>navigation.navigate("Register")}  style={styles.Registerbutton}>
+    <TouchableOpacity  onPress={()=>navigation.navigate("")}  style={styles.Registerbutton}>
       <Text style={styles.statmentButton}>TakeTour</Text> 
     </TouchableOpacity> 
     </View>
@@ -89,9 +97,29 @@ const styles = StyleSheet.create({
        
       },
       statmentButton: {
-        color: '#000',
+        color: '#FFFCF8',
         fontFamily:'italic',
         
+        
+        fontWeight: 'bold',
+        fontSize: 25,
+        alignSelf: 'center',
+        paddingHorizontal: 8,
+        paddingVertical: 6,
+        borderRadius: 15,
+        marginBottom: 5,
+        minWidth: '50%',
+        textAlign: 'center',
+        position: 'relative',
+        bottom:     0,
+       // right: 50,
+       
+      },
+      statButton: {
+        color: '#583737',
+        fontFamily:'italic',
+        
+        top:100,
         fontWeight: 'bold',
         fontSize: 25,
         alignSelf: 'center',
