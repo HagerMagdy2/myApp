@@ -14,7 +14,7 @@ export default function SignIn({navigation}) {
   const handleSignIn = ()=>{
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-     navigation.navigate("Welcome");
+  navigation.navigate("Welcome");
       
       const user = userCredential.user;
       // ...
@@ -27,7 +27,7 @@ export default function SignIn({navigation}) {
   }
   return (
     <View style={styles.container}>
-       <Image style={styles.image} source={require("../assets/photo.png")} ></Image>
+<Image style={styles.image} source={require("../assets/signIn.jpg")} ></Image>
       {/* <image source={require("../assets/cover.png")}/> */}
 
       
@@ -59,10 +59,10 @@ export default function SignIn({navigation}) {
       
       <View > 
     
-<TouchableOpacity style={styles.loginBtn} onPress={()=>navigation.navigate("HomeScreen")}>
-      <Text style={styles.Text}>Home  </Text> 
+<TouchableOpacity style={styles.HomeBtn} onPress={()=>navigation.navigate("HomeScreen")}>
+      <Text style={styles.statmentButton}>  Home  </Text> 
     </TouchableOpacity>
-   
+  
     {/* <TouchableOpacity style={styles.loginBtn} onPress={()=>navigation.navigat("LogIn")}>
       <Text style={styles.Text}>LOGIN</Text> 
     </TouchableOpacity>  */}
@@ -70,7 +70,7 @@ export default function SignIn({navigation}) {
     {/* <TouchableOpacity style={styles.loginBtn}   onPress={()=>navigation.navigate("SignUp")}>
       <Text style={styles.Text}>SignUp </Text> 
     </TouchableOpacity>  */}
-   
+  
     
     </View> 
 
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         alignItems: "center",
       },
-     
+    
 
       input: {
         borderRadius:50,
@@ -134,10 +134,10 @@ const styles = StyleSheet.create({
         bottom: 300,
       },
 
-     
+
 
       statmentButton: {
-        color: '#000',
+        color: '#FFFCF8',
         fontFamily:'italic',
         
         fontWeight: 'bold',
@@ -168,5 +168,41 @@ const styles = StyleSheet.create({
         right: 205,
         width: 45,
         height:50,
+},
+HomeBtn: {
+  paddingHorizontal: 8,
+      paddingVertical: 6,
+      borderRadius: 50,
+      fontFamily:'italic',
+      backgroundColor: '#713522',
+      alignSelf: 'auto',
+      //marginHorizontal: '1%',
+      marginBottom: 6,
+      fontWeight: 'bold',
+      minWidth: '30%',
+      textAlign: 'center',
+      position: 'absolute',
+      bottom: 100,
+      right: -90,
+      width: 180,
+      bottom:-450,
+      height:50,
+},
+forgot_button: {
+  color: '#000',
+  fontFamily:'italic',
+  
+  //fontWeight: 'bold',
+  //fontSize: 25,
+  alignSelf: 'center',
+  paddingHorizontal: 8,
+  paddingVertical: 6,
+  //borderRadius: 15,
+  marginBottom: 5,
+ // minWidth: '50%',
+  //textAlign: 'center',
+  position: 'relative',
+  top:300,
+ // right: 50,
 },
 });

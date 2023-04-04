@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
         height: 50,
       },
       statmentButton: {
-        color: '#000',
+        color: '#FFFCF8',
         fontFamily:'italic',
         
         fontWeight: 'bold',
