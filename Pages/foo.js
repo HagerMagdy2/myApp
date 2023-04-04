@@ -6,14 +6,15 @@ import {  createUserWithEmailAndPassword } from "firebase/auth";
 import auth from '../firebase';
 import { useState } from 'react';
 
-export default function RegisterScreen({navigation}) {
+export default function ForgotPass({navigation}) {
     const user = auth.currentUser;
     const[email , setEmail]=useState('');
-    const[password , setPassword]=useState('');
+    //handelForgetPassword =() =>{console.log("done")};
+    
     const handleSignUp = ()=>{
-      createUserWithEmailAndPassword(auth, email, password)
+      createUserWithEmailAndPassword(auth, email)
     .then((userCredential) => {
-      navigation.navigate("WelcomeScreen");
+      navigation.navigate("Welcome");
       
       const user = userCredential.user;
       // ...
@@ -27,12 +28,12 @@ export default function RegisterScreen({navigation}) {
     }
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={require("../assets/Register.jpg")} ></Image>
+      <Image style={styles.image} source={require("../assets/Forget.jpg")} ></Image>
       {/* <image source={require("../assets/cover.png")}/> */}
-      <TouchableOpacity style={styles.button}
-        onPress={handleSignUp}>
-      <text style={styles.statmentButton}>Sign Up</text>
-      </TouchableOpacity>
+      <TouchableOpacity  onPress={ ""}  style={styles.Sendbutton}>
+      <Text style={styles.statmentButton}>Send verification Link  </Text> 
+    </TouchableOpacity>
+
       
       <TextInput
         style={styles.inputE}
@@ -41,15 +42,7 @@ export default function RegisterScreen({navigation}) {
         placeholder="Enter Your E-Mail"
         keyboardType='email-address'
       />
-<TextInput
-        style={styles.input}
-        onChangeText={setPassword}
-        value={password}
-        placeholder="Enter Your Password"
-        keyboardType='visible-password'
-        secureTextEntry
-      />
-    <StatusBar style="auto" />
+
       
     </View>
   );
@@ -84,43 +77,40 @@ const styles = StyleSheet.create({
         height: 40,
         width: 400,
         margin: 12,
-        borderWidth: 0.5,
+        borderWidth: 1,
         padding: 5,
         position: 'absolute',
-        right: 50,
-        bottom: 300,
+        right: 120,
+        bottom: 200,
       },
       statmentButton: {
         color: '#FFFCF8',
         fontFamily:'italic',
         
         fontWeight: 'bold',
-        fontSize: 25,
-        alignSelf: 'center',
-        paddingHorizontal: 8,
-        paddingVertical: 6,
-        borderRadius: 15,
-        marginBottom: 5,
-        minWidth: '50%',
-        textAlign: 'center',
-        position: 'relative',
-        bottom: 0,
-       // right: 50,
   },
-  button: {
-    paddingHorizontal: 8,
-        paddingVertical: 6,
-        borderRadius: 50,
-        backgroundColor: '#713522',
-        alignSelf: 'auto',
-        //marginHorizontal: '1%',
-        marginBottom: 6,
-        minWidth: '30%',
-        textAlign: 'center',
-        position: 'absolute',
-        bottom: 100,
-        right: 205,
-        width: 45,
-        height: 50,
-},
+  
+  Sendbutton:{
+        
+    width: "50%",
+    borderRadius: 20,
+    height: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 70,
+    backgroundColor: "#713522",
+   // flexDirection: 'row',
+    paddingHorizontal: 100,
+    paddingVertical: 6,
+    borderRadius: 50,
+    marginBottom: 6,
+    minWidth: '30%',
+    textAlign: 'center',
+    position: 'absolute',
+  top: 800,
+right:150,
+    width:350,
+
+  },
+
 });

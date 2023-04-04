@@ -4,6 +4,7 @@ import { StyleSheet, View, TextInput, TouchableOpacity, Image } from 'react-nati
 import { Text } from 'react-native';
 import auth from '../firebase';
 import sora from "../assets/cover.png";
+import { signOut } from "firebase/auth";
 
 export default function HomeScreen({ navigation }) {
   const handleSignOut = ()=>{
@@ -132,6 +133,6 @@ const styles = StyleSheet.create({
         position: 'relative',
         bottom:     0,
        // right: 50,
-   
+    
 },
 });
