@@ -31,15 +31,15 @@ export default function SignIn({navigation}) {
     });
   }
 
-  function signup(){
+  function signin(){
     signInWithPopup(auth, provider)
   .then((result) => {
     // This gives you a Google Access Token. You can use it to access the Google API.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
+    //const credential = GoogleAuthProvider.credentialFromResult(result);
+    //const token = credential.accessToken;
     // The signed-in user info.
     const user = result.user;
-    alert(user.displayName);
+    navigation.navigate("Welcome");
     // IdP data available using getAdditionalUserInfo(result)
     // ...
   }).catch((error) => {
@@ -93,7 +93,7 @@ export default function SignIn({navigation}) {
       <Text style={styles.statmentButton}>  Home  </Text> 
     </TouchableOpacity> */}
 
-    <GoogleButton style={styles.HomeBtn} onClick={signup}/>
+    <GoogleButton style={styles.HomeBtn} onClick={signin}/>
   
     {/* <TouchableOpacity style={styles.loginBtn} onPress={()=>navigation.navigat("LogIn")}>
       <Text style={styles.Text}>LOGIN</Text> 
