@@ -121,6 +121,6 @@ const styles = StyleSheet.create({
         bottom: 100,
         right: 205,
         width: 45,
-        height: 50,
+        height:50,
 },
 });
