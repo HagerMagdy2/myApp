@@ -17,7 +17,7 @@ export default function ForgotPass({navigation}) {
       navigation.navigate("Welcome");
       
       const user = userCredential.user;
-      // ...
+      
     })
     .catch((error) => {
       const errorCode = error.code;
