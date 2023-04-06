@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
       },
       input: {
-        borderRadius:50,
+        borderRadius:10,
         height: 40,
         width: 400,
         margin: 12,
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
         bottom: 220,
       },
       inputE: {
-        borderRadius:50,
+        borderRadius:10,
         height: 40,
         width: 400,
         margin: 12,

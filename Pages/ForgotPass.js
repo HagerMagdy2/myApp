@@ -5,7 +5,9 @@ import { Text } from 'react-native';
 import { sendPasswordResetEmail } from "firebase/auth";
 import auth from '../firebase';
 import { useState } from 'react';
+
 export default function ForgetPass({navigation}){
+  
 const[Email,setEmail]=useState('')
 
 const handleSignIn = () => {
@@ -43,6 +45,7 @@ sendPasswordResetEmail(auth, Email)
             <Text style={styles.buttonText}>Back to Sign in</Text>
                   
           </TouchableOpacity> */}
+         
           
     </View>
   );
@@ -62,7 +65,7 @@ const styles = StyleSheet.create({
       position: 'absolute',
     },
     input: {
-      borderRadius:50,
+      borderRadius:10,
       height: 40,
       width: 400,
       margin: 12,
@@ -73,7 +76,7 @@ const styles = StyleSheet.create({
       bottom: 220,
     },
     inputE: {
-      borderRadius:50,
+      borderRadius:10,
       height: 40,
       width: 400,
       margin: 12,
