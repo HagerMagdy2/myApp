@@ -8,6 +8,7 @@ import HomeScreen from './Pages/HomeScreen';
  import StartScreen from './Pages/StartScreen';
  import ForgotPass from './Pages/ForgotPass';
  import WelcomeScreen from './Pages/WelcomeScreen';
+ import foo from './Pages/foo';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -20,6 +21,7 @@ export default function App() {
         <Stack.Screen name="SignIn" component={SignInScreen} />
         <Stack.Screen name="Forgot" component={ForgotPass} />
         <Stack.Screen name="Welcome" component={WelcomeScreen} />
+        <Stack.Screen name="foo" component={foo} />
       </Stack.Navigator>
     </NavigationContainer>
   );

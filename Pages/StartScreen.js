@@ -7,7 +7,7 @@ export default function StartScreen({ navigation }) {
 
     return (
         <View style={styles.container}>
-            <Image style={styles.image} source={require("../assets/cover.png")} ></Image>
+            <Image style={styles.image} source={require("../assets/coffee..JPG")} ></Image>
             {/* <image source={require("../assets/cover.png")}/> */}
 
             <TouchableOpacity onPress={() => navigation.navigate("HomeScreen")} style={styles.Startbutton} >
@@ -27,6 +27,8 @@ const styles = StyleSheet.create({
     image: {
         //flex: 1,
         //justifyContent: 'center',
+        // width:"100%",
+        // height:"100%",
         width:600,
         height: 1080 ,
         position: 'absolute',
@@ -39,13 +41,13 @@ const styles = StyleSheet.create({
         alignSelf: 'auto',
         //marginHorizontal: '1%',
         marginBottom: 6,
-        minWidth: '30%',
+        minWidth: '50%',
         textAlign: 'center',
         position: 'absolute',
-        bottom: 100,
-        right: 205,
-        width: 45,
-        height: 50,
+        bottom: 590,
+        right: 150,
+        width: 10,
+        height: 58,
       },
       statmentButton: {
         color: '#FFFCF8',
@@ -61,7 +63,7 @@ const styles = StyleSheet.create({
         minWidth: '50%',
         textAlign: 'center',
         position: 'relative',
-        bottom: 0,
+        bottom: -12,
        // right: 50,
        
       },
