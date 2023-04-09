@@ -35,7 +35,7 @@ export default function RegisterScreen({navigation}) {
       {/* <image source={require("../assets/cover.png")}/> */}
       <TouchableOpacity style={styles.button}
         onPress={handleSignUp}>
-      <text style={styles.statmentButton}>Sign Up</text>
+      <text style={styles.statmentButton}>Register</text>
       </TouchableOpacity>
       <View>
       <TouchableOpacity style={styles.HomeBtn} onPress={()=>navigation.navigate("HomeScreen")}>
@@ -102,27 +102,30 @@ const styles = StyleSheet.create({
             height:50,
       },
       input: {
-        borderRadius:10,
-        height: 40,
-        width: 400,
+        borderRadius:50,
+        height: 50,
+        width: 500,
         margin: 12,
         borderWidth: 0.5,
         padding: 5,
         position: 'absolute',
-        right: 50,
-        bottom: 220,
+        right: 30,
+        bottom: 240,
+        fontSize: 16,
       },
       inputE: {
-        borderRadius:10,
-        height: 40,
-        width: 400,
+        borderRadius:50,
+        height: 50,
+        width: 500,
         margin: 12,
         borderWidth: 0.5,
         padding: 5,
         position: 'absolute',
-        right: 50,
+        right: 30,
         bottom: 300,
+        fontSize: 22,
       },
+
       statmentButton: {
         color: '#FFFCF8',
         fontFamily:'italic',
@@ -152,9 +155,9 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         position: 'absolute',
         bottom: 100,
-        right: 205,
-        width: 45,
-        height:50,
+        right: 120,
+        width: 350,
+        height:55,
 },
 HomeBtn: {
   paddingHorizontal: 8,
@@ -170,9 +173,9 @@ HomeBtn: {
       textAlign: 'center',
       position: 'absolute',
       
-      right: -90,
-      width: 180,
-      bottom:-500,
-      height:50,
+      right: -175,
+      width: 350,
+      bottom:-520,
+      height:55,
 },
 });
