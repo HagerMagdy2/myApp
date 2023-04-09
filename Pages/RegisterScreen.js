@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
         minWidth: '50%',
         textAlign: 'center',
         position: 'relative',
-        bottom: 0,
+        bottom: 7,
        // right: 50,
   },
   button: {
