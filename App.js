@@ -9,6 +9,7 @@ import HomeScreen from './Pages/HomeScreen';
  import ForgotPass from './Pages/ForgotPass';
  import WelcomeScreen from './Pages/WelcomeScreen';
  import foo from './Pages/foo';
+ import Profile from './Pages/Profile';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -24,6 +25,7 @@ export default function App() {
         <Stack.Screen name="Forgot" component={ForgotPass} />
         <Stack.Screen name="Welcome" component={WelcomeScreen} />
         <Stack.Screen name="foo" component={foo} />
+        <Stack.Screen name="Profile" component={Profile} />
       </Stack.Navigator>
     </NavigationContainer>
   );
