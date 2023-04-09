@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
         minWidth: '50%',
         textAlign: 'center',
         position: 'absolute',
-        bottom: 590,
+        bottom: 620,
         right: 150,
         width: 10,
         height: 58,
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
         minWidth: '50%',
         textAlign: 'center',
         position: 'relative',
-        bottom: -12,
+        bottom: -4,
        // right: 50,
        
       },

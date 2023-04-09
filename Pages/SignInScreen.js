@@ -6,7 +6,7 @@ import { signInWithEmailAndPassword, updateCurrentUser } from "firebase/auth";
 import auth from '../firebase';
 import { useState } from 'react';
 import { provider } from '../firebase';
-import GoogleButton from 'react-google-button';
+//import GoogleButton from 'react-google-button';
 import {  signInWithPopup } from "firebase/auth";
 
 export default function SignIn({navigation}) {
@@ -31,30 +31,30 @@ export default function SignIn({navigation}) {
     });
   }
 
-  function signin(){
-    signInWithPopup(auth, provider)
-  .then((result) => {
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    //const credential = GoogleAuthProvider.credentialFromResult(result);
-    //const token = credential.accessToken;
-    // The signed-in user info.
-    const user = result.user;
-    navigation.navigate("Welcome");
-    // IdP data available using getAdditionalUserInfo(result)
-    // ...
-  }).catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // The email of the user's account used.
-    const email = error.customData.email;
-    // The AuthCredential type that was used.
-    const credential = GoogleAuthProvider.credentialFromError(error);
-    alert("Error");
-    // ...
-  });
+  // function signin(){
+  //   signInWithPopup(auth, provider)
+  // .then((result) => {
+  //   // This gives you a Google Access Token. You can use it to access the Google API.
+  //   //const credential = GoogleAuthProvider.credentialFromResult(result);
+  //   //const token = credential.accessToken;
+  //   // The signed-in user info.
+  //   const user = result.user;
+  //   navigation.navigate("Welcome");
+  //   // IdP data available using getAdditionalUserInfo(result)
+  //   // ...
+  // }).catch((error) => {
+  //   // Handle Errors here.
+  //   const errorCode = error.code;
+  //   const errorMessage = error.message;
+  //   // The email of the user's account used.
+  //   const email = error.customData.email;
+  //   // The AuthCredential type that was used.
+  //   const credential = GoogleAuthProvider.credentialFromError(error);
+  //   alert("Error");
+  //   // ...
+  // });
 
-  }
+  // }
   return (
     <View style={styles.container}>
 <Image style={styles.image} source={require("../assets/signIn.jpg")} ></Image>
@@ -89,11 +89,11 @@ export default function SignIn({navigation}) {
       
       <View > 
     
-{/* <TouchableOpacity style={styles.HomeBtn} onPress={()=>navigation.navigate("HomeScreen")}>
+<TouchableOpacity style={styles.HomeBtn} onPress={()=>navigation.navigate("HomeScreen")}>
       <Text style={styles.statmentButton}>  Home  </Text> 
-    </TouchableOpacity> */}
+    </TouchableOpacity>
 
-    <GoogleButton style={styles.HomeBtn} onClick={signin}/>
+    {/* <GoogleButton style={styles.HomeBtn} onClick={signin}/> */}
   
     {/* <TouchableOpacity style={styles.loginBtn} onPress={()=>navigation.navigat("LogIn")}>
       <Text style={styles.Text}>LOGIN</Text> 
@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
         minWidth: '50%',
         textAlign: 'center',
         position: 'relative',
-        bottom: 0,
+        bottom: 7,
        // right: 50,
   },
   button: {
@@ -214,10 +214,10 @@ HomeBtn: {
       minWidth: '30%',
       textAlign: 'center',
       position: 'absolute',
-      bottom: 100,
+      
       right: -90,
       width: 180,
-      bottom:-450,
+      bottom:-490,
       height:50,
 },
 forgot_button: {
@@ -234,7 +234,7 @@ forgot_button: {
  // minWidth: '50%',
   //textAlign: 'center',
   position: 'relative',
-  top:300,
+  top:350,
  // right: 50,
 },
 });

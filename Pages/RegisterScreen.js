@@ -37,6 +37,12 @@ export default function RegisterScreen({navigation}) {
         onPress={handleSignUp}>
       <text style={styles.statmentButton}>Sign Up</text>
       </TouchableOpacity>
+      <View>
+      <TouchableOpacity style={styles.HomeBtn} onPress={()=>navigation.navigate("HomeScreen")}>
+      <Text style={styles.statmentButton}>  Home  </Text> 
+    </TouchableOpacity>
+      </View>
+     
       
       <TextInput
         style={styles.inputE}
@@ -53,6 +59,7 @@ export default function RegisterScreen({navigation}) {
         keyboardType='visible-password'
         secureTextEntry
       />
+     
      
     <StatusBar style="auto" />
 
@@ -130,7 +137,7 @@ const styles = StyleSheet.create({
         minWidth: '50%',
         textAlign: 'center',
         position: 'relative',
-        bottom: 0,
+        bottom: 7,
        // right: 50,
   },
   button: {
@@ -148,5 +155,24 @@ const styles = StyleSheet.create({
         right: 205,
         width: 45,
         height:50,
+},
+HomeBtn: {
+  paddingHorizontal: 8,
+      paddingVertical: 6,
+      borderRadius: 50,
+      fontFamily:'italic',
+      backgroundColor: '#713522',
+      alignSelf: 'auto',
+      //marginHorizontal: '1%',
+      marginBottom: 6,
+      fontWeight: 'bold',
+      minWidth: '30%',
+      textAlign: 'center',
+      position: 'absolute',
+      
+      right: -90,
+      width: 180,
+      bottom:-500,
+      height:50,
 },
 });
