@@ -6,6 +6,7 @@ import {  createUserWithEmailAndPassword } from "firebase/auth";
 import auth from '../firebase';
 import { useState } from 'react';
 
+
 export default function RegisterScreen({navigation}) {
     const user = auth.currentUser;
     const[email , setEmail]=useState('');
@@ -22,9 +23,12 @@ export default function RegisterScreen({navigation}) {
       const errorCode = error.code;
       const errorMessage = error.message;
       // alert("Can not Creat this account may be you have an account with name " );
-      console.log(errorMessage);
+      //console.log(errorMessage);
     });
     }
+    
+
+
   return (
     <View style={styles.container}>
       <Image style={styles.image} source={require("../assets/Register.jpg")} ></Image>
@@ -49,7 +53,10 @@ export default function RegisterScreen({navigation}) {
         keyboardType='visible-password'
         secureTextEntry
       />
+     
     <StatusBar style="auto" />
+
+    
       
     </View>
   );
@@ -68,8 +75,27 @@ const styles = StyleSheet.create({
         height: 1080 ,
         position: 'absolute',
       },
+      HomeBtn: {
+        paddingHorizontal: 8,
+            paddingVertical: 6,
+            borderRadius: 50,
+            fontFamily:'italic',
+            backgroundColor: '#713522',
+            alignSelf: 'auto',
+            //marginHorizontal: '1%',
+            marginBottom: 6,
+            fontWeight: 'bold',
+            minWidth: '30%',
+            textAlign: 'center',
+            position: 'absolute',
+            bottom: 100,
+            right: -90,
+            width: 180,
+            bottom:-450,
+            height:50,
+      },
       input: {
-        borderRadius:50,
+        borderRadius:10,
         height: 40,
         width: 400,
         margin: 12,
@@ -80,7 +106,7 @@ const styles = StyleSheet.create({
         bottom: 220,
       },
       inputE: {
-        borderRadius:50,
+        borderRadius:10,
         height: 40,
         width: 400,
         margin: 12,
@@ -121,6 +147,6 @@ const styles = StyleSheet.create({
         bottom: 100,
         right: 205,
         width: 45,
-        height: 50,
+        height:50,
 },
 });

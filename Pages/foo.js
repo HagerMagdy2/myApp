@@ -9,7 +9,7 @@ import { useState } from 'react';
 export default function ForgotPass({navigation}) {
     const user = auth.currentUser;
     const[email , setEmail]=useState('');
-    //handelForgetPassword =() =>{console.log("done")};
+    
     
     const handleSignUp = ()=>{
       createUserWithEmailAndPassword(auth, email)
@@ -17,7 +17,7 @@ export default function ForgotPass({navigation}) {
       navigation.navigate("Welcome");
       
       const user = userCredential.user;
-      // ...
+      //.//
     })
     .catch((error) => {
       const errorCode = error.code;
