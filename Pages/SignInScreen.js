@@ -61,9 +61,7 @@ export default function SignIn({navigation}) {
       {/* <image source={require("../assets/cover.png")}/> */}
 
       
-      <TouchableOpacity style={styles.button} onPress={handleSignIn}   >
-      <text style={styles.statmentButton} >Sign In</text>
-      </TouchableOpacity>
+   
       <StatusBar style="auto" /> 
       
       <TextInput
@@ -85,15 +83,20 @@ export default function SignIn({navigation}) {
       <TouchableOpacity onPress={() => navigation.navigate("Forgot")}>
         <Text style={styles.forgot_button}>Forgot Password?</Text> 
       </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={handleSignIn}   >
       
+      <text style={styles.statmentButton} >Sign In</text>
+      </TouchableOpacity>
       
       <View > 
     
-{/* <TouchableOpacity style={styles.HomeBtn} onPress={()=>navigation.navigate("HomeScreen")}>
-      <Text style={styles.statmentButton}>  Home  </Text> 
-    </TouchableOpacity> */}
 
-    <GoogleButton style={styles.HomeBtn} onClick={signin}/>
+
+   
+    <GoogleButton style={styles.goglBtn} onClick={signin}/>
+    <TouchableOpacity style={styles.HomeBtn} onPress={()=>navigation.navigate("HomeScreen")}>
+      <Text style={styles.statmentButton}>  Home  </Text> 
+    </TouchableOpacity>
   
     {/* <TouchableOpacity style={styles.loginBtn} onPress={()=>navigation.navigat("LogIn")}>
       <Text style={styles.Text}>LOGIN</Text> 
@@ -145,25 +148,27 @@ const styles = StyleSheet.create({
 
       input: {
         borderRadius:50,
-        height: 40,
-        width: 400,
+        height: 50,
+        width: 500,
         margin: 12,
         borderWidth: 0.5,
         padding: 5,
         position: 'absolute',
-        right: 50,
-        bottom: 220,
+        right: 30,
+        bottom: 340,
+        fontSize: 16,
       },
       inputE: {
         borderRadius:50,
-        height: 40,
-        width: 400,
+        height: 50,
+        width: 500,
         margin: 12,
         borderWidth: 0.5,
         padding: 5,
         position: 'absolute',
-        right: 50,
-        bottom: 300,
+        right: 30,
+        bottom: 400,
+        fontSize: 22,
       },
 
 
@@ -196,10 +201,10 @@ const styles = StyleSheet.create({
         minWidth: '30%',
         textAlign: 'center',
         position: 'absolute',
-        bottom: 100,
-        right: 205,
-        width: 45,
-        height:50,
+        bottom: 240,
+        right:50,
+        width: 500,
+        height:53 ,
 },
 HomeBtn: {
   paddingHorizontal: 8,
@@ -217,8 +222,28 @@ HomeBtn: {
       
       right: -90,
       width: 180,
-      bottom:-490,
+      bottom:-500,
       height:50,
+},
+goglBtn: {
+  paddingHorizontal: 8,
+      paddingVertical: 6,
+      borderRadius: 50,
+      fontFamily:'italic',
+      backgroundColor: '#713522',
+      alignSelf: 'auto',
+      //marginHorizontal: '1%',
+      marginBottom: 6,
+      fontWeight: 'bold',
+      minWidth: '30%',
+      textAlign: 'center',
+      position: 'absolute',
+      
+      right: -250,
+      width: 500,
+      bottom:-380,
+      height:55,
+      fontSize: 18,
 },
 forgot_button: {
   color: '#000',
@@ -234,7 +259,7 @@ forgot_button: {
  // minWidth: '50%',
   //textAlign: 'center',
   position: 'relative',
-  top:350,
+  top:210,
  // right: 50,
 },
 });

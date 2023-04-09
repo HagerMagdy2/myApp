@@ -17,7 +17,7 @@ export default function App() {
       <Stack.Navigator screenOptions={{
     headerShown: false
   }}>
-        <Stack.Screen name="StartScreen" component={StartScreen} />
+        {/* <Stack.Screen name="StartScreen" component={StartScreen} /> */}
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="Register" component={RegisterScreen} />
         <Stack.Screen name="SignIn" component={SignInScreen} />
