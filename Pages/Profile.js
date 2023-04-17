@@ -127,13 +127,13 @@ textStyle: {
   paddingVertical: 6,
   borderRadius: 15,
   marginBottom: 1,
-  minWidth: '50%',
+  minWidth: '20%',
   textAlign: 'center',
   position: 'relative',
-  top:60,
+  bottom:-120,
  
 
- right: 150,
+ right: 180,
 },
 textStyles: {
   color: '#633A09',
