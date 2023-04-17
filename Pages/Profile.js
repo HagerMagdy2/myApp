@@ -4,7 +4,7 @@ import { StyleSheet, View ,TextInput,TouchableOpacity,Image} from 'react-native'
 import { Text } from 'react-native';
 import {  createUserWithEmailAndPassword } from "firebase/auth";
 import {auth,db} from '../firebase';
-
+import { signOut } from "firebase/auth";
 import { useState } from 'react';
 import { doc, getDoc } from "firebase/firestore"; 
 
@@ -29,11 +29,22 @@ export default function Profile  ({navigation})  {
     
   }
   getUser();
+  const handleSignOut = ()=>{
+    signOut(auth).then(() => {
+      // Sign-out successful.
+      navigation.navigate("HomeScreen");
+    }).catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // alert("Can not Creat this account may be you have an account with name " );
+      console.log(errorMessage);
+    });
+  }
   return (
 
     <View style={styles.container}>
-       <Image style={styles.image} source={require("../assets/photo.png")} ></Image>
-      <Text style={styles.textStyle}>Profile</Text>
+       <Image style={styles.image} source={require("../assets/profile.jpg")} ></Image>
+      {/* <Text style={styles.textStyle}>Profile</Text> */}
       <Text  style={styles.textStyle}>email :{email}</Text>
     
       <Text style={styles.textStyle}>Name : {name}</Text>
@@ -42,6 +53,13 @@ export default function Profile  ({navigation})  {
         onPress={getUser}>
       <text style={styles.statmentButton}>Edit Up</text>
       </TouchableOpacity>
+      <TouchableOpacity onPress={handleSignOut}  style={styles.SignInbutton}>
+      <Text style={styles.statmentButton}>SignOut  </Text> 
+    </TouchableOpacity>
+   
+    <TouchableOpacity  onPress={()=>navigation.navigate("Profile")}  style={styles.Registerbutton}>
+      <Text style={styles.statmentButton}>TakeTour</Text> 
+    </TouchableOpacity> 
       
     </View>
 
@@ -107,14 +125,62 @@ button: {
       backgroundColor: '#713522',
       alignSelf: 'auto',
       //marginHorizontal: '1%',
+      paddingHorizontal: 100,
+      paddingVertical: 6,
+      borderRadius: 20,
       marginBottom: 6,
       minWidth: '30%',
       textAlign: 'center',
       position: 'absolute',
-      bottom: 100,
-      right: 205,
-      width: 45,
+       bottom: 50,
+       right: 200,
+      width: 130,
       height:50,
+     
+},
+Registerbutton:{
+  width: "50%",
+  alignItems: "center",
+  justifyContent: "center",
+  marginTop: 30,
+  backgroundColor: "#713522",
+ // flexDirection: 'row',
+  paddingHorizontal: 100,
+  paddingVertical: 6,
+  borderRadius: 20,
+  marginBottom: 6,
+  minWidth: '30%',
+  textAlign: 'center',
+  position: 'absolute',
+   bottom: 170,
+   right: 200,
+  width: 130,
+  height:50,
+ 
+ 
+},
+SignInbutton:{
+        
+  width: "50%",
+  borderRadius: 20,
+  height: 50,
+  alignItems: "center",
+  justifyContent: "center",
+  marginTop: 30,
+  backgroundColor: "#713522",
+ // flexDirection: 'row',
+  paddingHorizontal: 100,
+  paddingVertical: 6,
+  borderRadius: 50,
+  marginBottom: 6,
+  minWidth: '30%',
+  textAlign: 'center',
+  position: 'absolute',
+   bottom: 110,
+   right: 200,
+  width: 130,
+ 
+ 
 },
 textStyle: {
   color: '#633A09',
@@ -122,16 +188,16 @@ textStyle: {
   
   fontWeight: 'bold',
   fontSize: 25,
-  alignSelf: 'center',
+  alignSelf: 'left',
   paddingHorizontal: 8,
   paddingVertical: 6,
   borderRadius: 15,
   marginBottom: 5,
   minWidth: '50%',
-  textAlign: 'center',
+  textAlign: 'left',
   position: 'relative',
   bottom: 0,
- // right: 50,
+  right: 100,
 },
 });
 

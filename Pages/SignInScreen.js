@@ -19,7 +19,7 @@ export default function SignIn({navigation}) {
   const handleSignIn = ()=>{
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-  navigation.navigate("Welcome");
+  navigation.navigate("Profile");
       console.log(auth.currentUser.uid)
       const user = userCredential.user;
       // ...
@@ -40,7 +40,7 @@ export default function SignIn({navigation}) {
     // The signed-in user info.
     const user = result.user;
     console.log(user.email)
-    navigation.navigate("Welcome");
+    navigation.navigate("Profile");
     // IdP data available using getAdditionalUserInfo(result)
     // ...
   }).catch((error) => {
@@ -64,13 +64,13 @@ export default function SignIn({navigation}) {
       
    
       <StatusBar style="auto" /> 
-      <TextInput
+      {/* <TextInput
         style={styles.inputN}
         onChangeText={setName}
         value={name}
         placeholder="Enter Your Name"
         keyboardType='email-address'
-      />
+      /> */}
       <TextInput
         style={styles.inputE}
         onChangeText={setEmail}
