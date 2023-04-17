@@ -98,9 +98,23 @@ export default function RegisterScreen({ navigation }) {
         source={require("../assets/Register.jpg")}
       ></Image>
       {/* <image source={require("../assets/cover.png")}/> */}
+
       <TouchableOpacity style={styles.button} onPress={handleSignUp}>
         <text style={styles.statmentButton}>Sign Up</text>
+        </TouchableOpacity>
+
+   
+      <TouchableOpacity style={styles.button}
+        onPress={handleSignUp}>
+      <text style={styles.statmentButton}>Sign Up</text>
+
       </TouchableOpacity>
+     
+  <View>  
+     <TouchableOpacity style={styles.HomeBtn} onPress={()=>navigation.navigate("HomeScreen")}>
+      <Text style={styles.statmentButton}>  Home  </Text> 
+    </TouchableOpacity>
+    </View>
 
       <TextInput
         style={styles.inputN}
@@ -126,10 +140,13 @@ export default function RegisterScreen({ navigation }) {
         keyboardType="visible-password"
         secureTextEntry
       />
+
       {passwordError ? (
         <Text style={styles.error}>{passwordError}</Text>
       ) : null}
       <StatusBar style="auto" />
+
+
     </View>
   );
 }
@@ -185,7 +202,6 @@ const styles = StyleSheet.create({
   statmentButton: {
     color: "#FFFCF8",
     fontFamily: "italic",
-
     fontWeight: "bold",
     fontSize: 25,
     alignSelf: "center",
@@ -215,4 +231,92 @@ const styles = StyleSheet.create({
     width: 45,
     height: 50,
   },
+
+
+      input: {
+        borderRadius:7,
+        height: 40,
+        width: 400,
+        margin: 12,
+        borderWidth: 0.5,
+        padding: 5,
+        position: 'absolute',
+        right: 50,
+        bottom: 220,
+      },
+       inputN: {
+        borderRadius:7,
+        height: 40,
+        width: 400,
+        margin: 12,
+        borderWidth: 0.5,
+        padding: 5,
+        position: 'absolute',
+        right: 50,
+        bottom: 380,
+      },
+       inputE: {
+        borderRadius:7,
+        height: 40,
+        width: 400,
+        margin: 12,
+        borderWidth: 0.5,
+        padding: 5,
+        position: 'absolute',
+        right: 50,
+        bottom: 300,
+      },
+      statmentButton: {
+        color: '#FFFCF8',
+        fontFamily:'italic',
+        
+        fontWeight: 'bold',
+        fontSize: 25,
+        alignSelf: 'center',
+        paddingHorizontal: 8,
+        paddingVertical: 6,
+        borderRadius: 15,
+        marginBottom: 5,
+        minWidth: '50%',
+        textAlign: 'center',
+        position: 'relative',
+        bottom: 0,
+       // right: 50,
+  },
+  button: {
+    paddingHorizontal: 8,
+        paddingVertical: 6,
+        borderRadius: 50,
+        backgroundColor: '#713522',
+        alignSelf: 'auto',
+        //marginHorizontal: '1%',
+        marginBottom: 6,
+        minWidth: '30%',
+        textAlign: 'center',
+        position: 'absolute',
+        bottom: 100,
+        right: 205,
+        width: 45,
+        height:50,
+},
+HomeBtn: {
+  paddingHorizontal: 8,
+      paddingVertical: 6,
+      borderRadius: 50,
+      fontFamily:'italic',
+      backgroundColor: '#713522',
+      alignSelf: 'auto',
+      //marginHorizontal: '1%',
+      marginBottom: 6,
+      fontWeight: 'bold',
+      minWidth: '30%',
+      textAlign: 'center',
+      position: 'absolute',
+      
+      right: -90,
+      width: 180,
+      bottom:-500,
+      height:50,
+},
 });
+

@@ -64,13 +64,13 @@ export default function SignIn({navigation}) {
       
    
       <StatusBar style="auto" /> 
-      <TextInput
+      {/* <TextInput
         style={styles.inputN}
         onChangeText={setName}
         value={name}
         placeholder="Enter Your Name"
         keyboardType='email-address'
-      />
+      /> */}
       <TextInput
         style={styles.inputE}
         onChangeText={setEmail}
