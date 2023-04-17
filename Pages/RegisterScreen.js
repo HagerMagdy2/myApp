@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
 
         bottom: 370,
 
-        bottom: 220,
+     
 
       },
       inputE: {
