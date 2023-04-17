@@ -42,10 +42,16 @@ export default function RegisterScreen({navigation}) {
     <View style={styles.container}>
       <Image style={styles.image} source={require("../assets/Register.jpg")} ></Image>
       {/* <image source={require("../assets/cover.png")}/> */}
+
+   
       <TouchableOpacity style={styles.button}
         onPress={handleSignUp}>
       <text style={styles.statmentButton}>Sign Up</text>
       </TouchableOpacity>
+     
+  <View>   <TouchableOpacity style={styles.HomeBtn} onPress={()=>navigation.navigate("HomeScreen")}>
+      <Text style={styles.statmentButton}>  Home  </Text> 
+    </TouchableOpacity></View>
 
       <TextInput
         style={styles.inputN}
@@ -77,7 +83,7 @@ export default function RegisterScreen({navigation}) {
         secureTextEntry
       />
     <StatusBar style="auto" />
-      
+  
     </View>
   );
 }
@@ -120,7 +126,7 @@ const styles = StyleSheet.create({
 
         bottom: 370,
 
-        bottom: 220,
+     
 
       },
       inputE: {
@@ -166,5 +172,24 @@ const styles = StyleSheet.create({
         right: 205,
         width: 45,
         height: 50,
+},
+HomeBtn: {
+  paddingHorizontal: 8,
+      paddingVertical: 6,
+      borderRadius: 50,
+      fontFamily:'italic',
+      backgroundColor: '#713522',
+      alignSelf: 'auto',
+      //marginHorizontal: '1%',
+      marginBottom: 6,
+      fontWeight: 'bold',
+      minWidth: '30%',
+      textAlign: 'center',
+      position: 'absolute',
+      
+      right: -90,
+      width: 180,
+      bottom:-500,
+      height:50,
 },
 });
