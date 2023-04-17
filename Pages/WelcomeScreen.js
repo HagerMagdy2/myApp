@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, View, TextInput, TouchableOpacity, Image } from 'react-native';
 import { Text } from 'react-native';
-import auth from '../firebase';
+import {auth,db} from '../firebase';
 import sora from "../assets/cover.png";
 import { signOut } from "firebase/auth";
 
