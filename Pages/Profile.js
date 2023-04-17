@@ -33,11 +33,11 @@ export default function Profile  ({navigation})  {
 
     <View style={styles.container}>
        <Image style={styles.image} source={require("../assets/photo.png")} ></Image>
-      <Text style={styles.textStyles}>Profile</Text>
-      <Text  style={styles.textStyle}>email</Text>
-      <Text style={styles.textStyle}>{email}</Text>
-      <Text style={styles.textStyle}>Name</Text>
-      <Text style={styles.textStyle}>{name}</Text>
+      <Text style={styles.textStyle}>Profile</Text>
+      <Text  style={styles.textStyle}>email :{email}</Text>
+    
+      <Text style={styles.textStyle}>Name : {name}</Text>
+    
       <TouchableOpacity style={styles.button}
         onPress={getUser}>
       <text style={styles.statmentButton}>Edit Up</text>
@@ -126,32 +126,13 @@ textStyle: {
   paddingHorizontal: 8,
   paddingVertical: 6,
   borderRadius: 15,
-  marginBottom: 1,
-  minWidth: '20%',
-  textAlign: 'center',
-  position: 'relative',
-  bottom:-120,
- 
-
- right: 180,
-},
-textStyles: {
-  color: '#633A09',
-  fontFamily:'italic',
-  
-  fontWeight: 'bold',
-  fontSize: 50,
-  alignSelf: 'center',
-  paddingHorizontal: 8,
-  paddingVertical: 6,
-  borderRadius: 15,
   marginBottom: 5,
   minWidth: '50%',
   textAlign: 'center',
   position: 'relative',
-  top:50,
+  bottom: 0,
  // right: 50,
 },
 });
 
-//export default Profile
+//export default Profile
