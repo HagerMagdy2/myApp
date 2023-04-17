@@ -45,6 +45,7 @@ export default function RegisterScreen({navigation}) {
         onPress={handleSignUp}>
       <text style={styles.statmentButton}>Sign Up</text>
       </TouchableOpacity>
+
       <TextInput
         style={styles.inputN}
         onChangeText={setName}
@@ -52,6 +53,9 @@ export default function RegisterScreen({navigation}) {
         placeholder="Enter Your Name"
         keyboardType='email-address'
       />
+
+      
+
       <TextInput
         style={styles.inputE}
         onChangeText={setEmail}
@@ -94,6 +98,7 @@ const styles = StyleSheet.create({
         borderRadius:50,
         height: 40,
         width: 400,
+
         margin: 12,
         borderWidth: 0.5,
         padding: 5,
@@ -105,12 +110,17 @@ const styles = StyleSheet.create({
         borderRadius:50,
         height: 40,
         width: 400,
+
         margin: 12,
         borderWidth: 0.5,
         padding: 5,
         position: 'absolute',
         right: 50,
+
         bottom: 370,
+
+        bottom: 220,
+
       },
       inputE: {
         borderRadius:50,
