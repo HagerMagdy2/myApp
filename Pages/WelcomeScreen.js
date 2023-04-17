@@ -34,7 +34,7 @@ export default function HomeScreen({ navigation }) {
       <Text style={styles.statmentButton}>SignOut  </Text> 
     </TouchableOpacity>
    
-    <TouchableOpacity  onPress={()=>navigation.navigate("")}  style={styles.Registerbutton}>
+    <TouchableOpacity  onPress={()=>navigation.navigate("Profile")}  style={styles.Registerbutton}>
       <Text style={styles.statmentButton}>TakeTour</Text> 
     </TouchableOpacity> 
     </View>
