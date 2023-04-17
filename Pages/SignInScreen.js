@@ -186,7 +186,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         right: 30,
         bottom: 400,
-        fontSize: 22,
+        fontSize: 18,
       },
 
 
