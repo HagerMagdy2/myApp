@@ -23,15 +23,10 @@ export default function RegisterScreen({navigation}) {
       const errorCode = error.code;
       const errorMessage = error.message;
       // alert("Can not Creat this account may be you have an account with name " );
-      console.log(errorMessage);
-    });
-    }
-
       //console.log(errorMessage);
     });
     }
     
-
 
 
   return (
@@ -40,8 +35,14 @@ export default function RegisterScreen({navigation}) {
       {/* <image source={require("../assets/cover.png")}/> */}
       <TouchableOpacity style={styles.button}
         onPress={handleSignUp}>
-      <text style={styles.statmentButton}>Sign Up</text>
+      <text style={styles.statmentButton}>Register</text>
       </TouchableOpacity>
+      <View>
+      <TouchableOpacity style={styles.HomeBtn} onPress={()=>navigation.navigate("HomeScreen")}>
+      <Text style={styles.statmentButton}>  Home  </Text> 
+    </TouchableOpacity>
+      </View>
+     
       
       <TextInput
         style={styles.inputE}
@@ -58,12 +59,11 @@ export default function RegisterScreen({navigation}) {
         keyboardType='visible-password'
         secureTextEntry
       />
-    <StatusBar style="auto" />
+     
      
     <StatusBar style="auto" />
 
     
-
       
     </View>
   );
@@ -82,9 +82,6 @@ const styles = StyleSheet.create({
         height: 1080 ,
         position: 'absolute',
       },
-
-      input: {
-        borderRadius:50,
       HomeBtn: {
         paddingHorizontal: 8,
             paddingVertical: 6,
@@ -105,28 +102,30 @@ const styles = StyleSheet.create({
             height:50,
       },
       input: {
-        borderRadius:10,
-        height: 40,
-        width: 400,
+        borderRadius:50,
+        height: 50,
+        width: 500,
         margin: 12,
         borderWidth: 0.5,
         padding: 5,
         position: 'absolute',
-        right: 50,
-        bottom: 220,
+        right: 30,
+        bottom: 240,
+        fontSize: 16,
       },
       inputE: {
         borderRadius:50,
-        borderRadius:10,
-        height: 40,
-        width: 400,
+        height: 50,
+        width: 500,
         margin: 12,
         borderWidth: 0.5,
         padding: 5,
         position: 'absolute',
-        right: 50,
+        right: 30,
         bottom: 300,
+        fontSize: 22,
       },
+
       statmentButton: {
         color: '#FFFCF8',
         fontFamily:'italic',
@@ -141,7 +140,7 @@ const styles = StyleSheet.create({
         minWidth: '50%',
         textAlign: 'center',
         position: 'relative',
-        bottom: 0,
+        bottom: 7,
        // right: 50,
   },
   button: {
@@ -156,8 +155,27 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         position: 'absolute',
         bottom: 100,
-        right: 205,
-        width: 45,
-        height:50,
+        right: 120,
+        width: 350,
+        height:55,
+},
+HomeBtn: {
+  paddingHorizontal: 8,
+      paddingVertical: 6,
+      borderRadius: 50,
+      fontFamily:'italic',
+      backgroundColor: '#713522',
+      alignSelf: 'auto',
+      //marginHorizontal: '1%',
+      marginBottom: 6,
+      fontWeight: 'bold',
+      minWidth: '30%',
+      textAlign: 'center',
+      position: 'absolute',
+      
+      right: -175,
+      width: 350,
+      bottom:-520,
+      height:55,
 },
 });

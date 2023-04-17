@@ -12,7 +12,10 @@ export default function HomeScreen({ navigation }) {
       // Sign-out successful.
       navigation.navigate("HomeScreen");
     }).catch((error) => {
-      // An error happened.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // alert("Can not Creat this account may be you have an account with name " );
+      console.log(errorMessage);
     });
   }
    
