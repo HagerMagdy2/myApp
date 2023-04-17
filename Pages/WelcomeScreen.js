@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, View, TextInput, TouchableOpacity, Image } from 'react-native';
 import { Text } from 'react-native';
-import auth from '../firebase';
+import {auth,db} from '../firebase';
 import sora from "../assets/cover.png";
 import { signOut } from "firebase/auth";
 
@@ -25,7 +25,7 @@ export default function HomeScreen({ navigation }) {
 <View>
 
             {/* <text style={styles.statmentButton} >Welcome</text> */}
-<Text style={styles.statButton}> {auth.currentUser?.email}</Text>
+<Text style={styles.statButton}> {auth.currentUser?.name}</Text>
             <StatusBar style="auto" />
 
         </View>
@@ -34,7 +34,7 @@ export default function HomeScreen({ navigation }) {
       <Text style={styles.statmentButton}>SignOut  </Text> 
     </TouchableOpacity>
    
-    <TouchableOpacity  onPress={()=>navigation.navigate("")}  style={styles.Registerbutton}>
+    <TouchableOpacity  onPress={()=>navigation.navigate("Profile")}  style={styles.Registerbutton}>
       <Text style={styles.statmentButton}>TakeTour</Text> 
     </TouchableOpacity> 
     </View>
