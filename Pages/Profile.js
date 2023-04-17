@@ -9,7 +9,7 @@ import { useState } from 'react';
 import { doc, getDoc } from "firebase/firestore"; 
 
 export default function Profile  ({navigation})  {
- // const[name , setName]=useState('');
+  const[name , setName]=useState('');
   const[email , setEmail]=useState('');
   const[password , setPassword]=useState('');
   const getUser =async()=>{
@@ -20,6 +20,7 @@ export default function Profile  ({navigation})  {
       console.log("Document data:", docSnap.data());
     const data =docSnap.data();
     setEmail(data.email);
+    setName(data.name);
     } else {
       // docSnap.data() will be undefined in this case
       console.log("No such document!");
@@ -34,6 +35,8 @@ export default function Profile  ({navigation})  {
       <Text>Profile</Text>
       <Text>email</Text>
       <Text>{email}</Text>
+      <Text>Name</Text>
+      <Text>{name}</Text>
       <TouchableOpacity style={styles.button}
         onPress={getUser}>
       <text style={styles.statmentButton}>Edit Up</text>
