@@ -32,7 +32,8 @@ export default function RegisterScreen({navigation}) {
     }
     const AddUserToDatabase = async()=>{
       await setDoc(doc(db, "users", auth.currentUser.uid), {
-        email:email
+        email:email,
+        name:name
    
   });
     

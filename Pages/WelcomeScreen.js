@@ -25,7 +25,7 @@ export default function HomeScreen({ navigation }) {
 <View>
 
             {/* <text style={styles.statmentButton} >Welcome</text> */}
-<Text style={styles.statButton}> {auth.currentUser?.name}</Text>
+<Text style={styles.statButton}> {auth.currentUser?.displayName}</Text>
             <StatusBar style="auto" />
 
         </View>
