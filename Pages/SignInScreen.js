@@ -11,7 +11,7 @@ import {  signInWithPopup } from "firebase/auth";
 
 export default function SignIn({navigation}) {
 
-
+  const[name , setName]=useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const user = auth.currentUser;
@@ -39,6 +39,7 @@ export default function SignIn({navigation}) {
     //const token = credential.accessToken;
     // The signed-in user info.
     const user = result.user;
+    console.log(user.email)
     navigation.navigate("Welcome");
     // IdP data available using getAdditionalUserInfo(result)
     // ...
@@ -63,7 +64,13 @@ export default function SignIn({navigation}) {
       
    
       <StatusBar style="auto" /> 
-      
+      <TextInput
+        style={styles.inputN}
+        onChangeText={setName}
+        value={name}
+        placeholder="Enter Your Name"
+        keyboardType='email-address'
+      />
       <TextInput
         style={styles.inputE}
         onChangeText={setEmail}
@@ -157,6 +164,17 @@ const styles = StyleSheet.create({
         right: 30,
         bottom: 340,
         fontSize: 16,
+      },
+      inputN: {
+        borderRadius:50,
+        height: 40,
+        width: 400,
+        margin: 12,
+        borderWidth: 0.5,
+        padding: 5,
+        position: 'absolute',
+        right: 50,
+        bottom: 450,
       },
       inputE: {
         borderRadius:50,

@@ -10,6 +10,7 @@ import { doc, setDoc } from "firebase/firestore";
 
 export default function RegisterScreen({navigation}) {
     const user = auth.currentUser;
+    const[name , setName]=useState('');
     const[email , setEmail]=useState('');
     const[password , setPassword]=useState('');
     const handleSignUp = ()=>{
@@ -44,7 +45,17 @@ export default function RegisterScreen({navigation}) {
         onPress={handleSignUp}>
       <text style={styles.statmentButton}>Sign Up</text>
       </TouchableOpacity>
+
+      <TextInput
+        style={styles.inputN}
+        onChangeText={setName}
+        value={name}
+        placeholder="Enter Your Name"
+        keyboardType='email-address'
+      />
+
       
+
       <TextInput
         style={styles.inputE}
         onChangeText={setEmail}
@@ -52,7 +63,11 @@ export default function RegisterScreen({navigation}) {
         placeholder="Enter Your E-Mail"
         keyboardType='email-address'
       />
+     
+
 <TextInput
+
+
         style={styles.input}
         onChangeText={setPassword}
         value={password}
@@ -83,12 +98,29 @@ const styles = StyleSheet.create({
         borderRadius:50,
         height: 40,
         width: 400,
+
         margin: 12,
         borderWidth: 0.5,
         padding: 5,
         position: 'absolute',
         right: 50,
         bottom: 220,
+      },
+      inputN: {
+        borderRadius:50,
+        height: 40,
+        width: 400,
+
+        margin: 12,
+        borderWidth: 0.5,
+        padding: 5,
+        position: 'absolute',
+        right: 50,
+
+        bottom: 370,
+
+        bottom: 220,
+
       },
       inputE: {
         borderRadius:50,
