@@ -3,7 +3,7 @@ import React from 'react';
 import { StyleSheet, View ,TextInput,TouchableOpacity,Image} from 'react-native';
 import { Text } from 'react-native';
 import { sendPasswordResetEmail } from "firebase/auth";
-import auth from '../firebase';
+import {auth,db} from '../firebase';
 import { useState } from 'react';
 
 export default function ForgetPass({navigation}){
