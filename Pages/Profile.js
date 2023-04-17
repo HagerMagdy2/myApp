@@ -33,12 +33,20 @@ export default function Profile  ({navigation})  {
 
     <View style={styles.container}>
        <Image style={styles.image} source={require("../assets/photo.png")} ></Image>
+<<<<<<< HEAD
       <Text style={styles.textStyle}>Profile</Text>
       <Text style={styles.textStyle}>Name : {name}</Text>
       <Text  style={styles.textStyle}>email : {email}</Text>
    
      
       
+=======
+      <Text style={styles.textStyles}>Profile</Text>
+      <Text  style={styles.textStyle}>email</Text>
+      <Text style={styles.textStyle}>{email}</Text>
+      <Text style={styles.textStyle}>Name</Text>
+      <Text style={styles.textStyle}>{name}</Text>
+>>>>>>> 8c6a235558f15ee1b8d97a1a1019b3f3715a51d1
       <TouchableOpacity style={styles.button}
         onPress={getUser}>
       <text style={styles.statmentButton}>Edit</text>
@@ -123,15 +131,44 @@ textStyle: {
   
   fontWeight: 'bold',
   fontSize: 25,
+<<<<<<< HEAD
   alignSelf: 'left',
+=======
+  alignSelf: 'center',
+  paddingHorizontal: 8,
+  paddingVertical: 6,
+  borderRadius: 15,
+  marginBottom: 1,
+  minWidth: '50%',
+  textAlign: 'center',
+  position: 'relative',
+  top:60,
+ 
+
+ right: 150,
+},
+textStyles: {
+  color: '#633A09',
+  fontFamily:'italic',
+  
+  fontWeight: 'bold',
+  fontSize: 50,
+  alignSelf: 'center',
+>>>>>>> 8c6a235558f15ee1b8d97a1a1019b3f3715a51d1
   paddingHorizontal: 8,
   paddingVertical: 6,
   borderRadius: 15,
   marginBottom: 5,
   minWidth: '50%',
+<<<<<<< HEAD
   textAlign: 'left',
   position: 'relative',
   bottom: 0,
+=======
+  textAlign: 'center',
+  position: 'relative',
+  top:50,
+>>>>>>> 8c6a235558f15ee1b8d97a1a1019b3f3715a51d1
  // right: 50,
 },
 });
