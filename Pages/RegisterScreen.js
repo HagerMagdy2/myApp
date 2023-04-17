@@ -12,9 +12,9 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../firebase";
 import { useState } from "react";
 import { doc, setDoc } from "firebase/firestore";
-//const user = auth.currentUser;
+
 export default function RegisterScreen({ navigation }) {
-  
+  const user = auth.currentUser;
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -71,7 +71,7 @@ export default function RegisterScreen({ navigation }) {
   const handleSignUp = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        navigation.navigate("Welcome");
+        navigation.navigate("Profile");
         console.log("Done");
 
         const user = userCredential.user;
@@ -165,39 +165,41 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   input: {
-    borderRadius: 5,
-    height: 40,
-    width: 400,
-
-    margin: 12,
-    borderWidth: 0.5,
-    padding: 5,
-    position: "absolute",
-    right: 50,
-    bottom: 220,
+    borderRadius:50,
+        height: 50,
+        width: 500,
+        margin: 12,
+        borderWidth: 0.5,
+        padding: 5,
+        position: 'absolute',
+        right: 30,
+        bottom: 220,
+        fontSize: 16,
   },
   inputN: {
-    borderRadius: 5,
-    height: 40,
-    width: 400,
-
+    borderRadius:500,
+    height: 50,
+    width: 500,
     margin: 12,
     borderWidth: 0.5,
     padding: 5,
-    position: "absolute",
-    right: 50,
+    position: 'absolute',
+    right: 30,
     bottom: 380,
+    fontSize: 16,
+  
   },
   inputE: {
-    borderRadius:5,
-    height: 40,
-    width: 400,
+    borderRadius:500,
+    height: 50,
+    width: 500,
     margin: 12,
     borderWidth: 0.5,
     padding: 5,
-    position: "absolute",
-    right: 50,
+    position: 'absolute',
+    right: 30,
     bottom: 300,
+    fontSize: 16,
   },
   statmentButton: {
     color: "#FFFCF8",
@@ -233,39 +235,6 @@ const styles = StyleSheet.create({
   },
 
 
-      input: {
-        borderRadius:7,
-        height: 40,
-        width: 400,
-        margin: 12,
-        borderWidth: 0.5,
-        padding: 5,
-        position: 'absolute',
-        right: 50,
-        bottom: 220,
-      },
-       inputN: {
-        borderRadius:7,
-        height: 40,
-        width: 400,
-        margin: 12,
-        borderWidth: 0.5,
-        padding: 5,
-        position: 'absolute',
-        right: 50,
-        bottom: 380,
-      },
-       inputE: {
-        borderRadius:7,
-        height: 40,
-        width: 400,
-        margin: 12,
-        borderWidth: 0.5,
-        padding: 5,
-        position: 'absolute',
-        right: 50,
-        bottom: 300,
-      },
       statmentButton: {
         color: '#FFFCF8',
         fontFamily:'italic',
