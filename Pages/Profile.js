@@ -32,17 +32,20 @@ export default function Profile  ({navigation})  {
   return (
 
     <View style={styles.container}>
-      <Text>Profile</Text>
-      <Text>email</Text>
-      <Text>{email}</Text>
-      <Text>Name</Text>
-      <Text>{name}</Text>
+       <Image style={styles.image} source={require("../assets/photo.png")} ></Image>
+      <Text style={styles.textStyle}>Profile</Text>
+      <Text style={styles.textStyle}>Name : {name}</Text>
+      <Text  style={styles.textStyle}>email : {email}</Text>
+   
+     
+      
       <TouchableOpacity style={styles.button}
         onPress={getUser}>
-      <text style={styles.statmentButton}>Edit Up</text>
+      <text style={styles.statmentButton}>Edit</text>
       </TouchableOpacity>
       
     </View>
+
   )
 }
 const styles = StyleSheet.create({
@@ -82,7 +85,7 @@ const styles = StyleSheet.create({
       bottom: 300,
     },
     statmentButton: {
-      color: '#FFFCF8',
+      color: '#fff',
       fontFamily:'italic',
       
       fontWeight: 'bold',
@@ -114,6 +117,23 @@ button: {
       width: 45,
       height:50,
 },
+textStyle: {
+  color: '#633A09',
+  fontFamily:'italic',
+  
+  fontWeight: 'bold',
+  fontSize: 25,
+  alignSelf: 'left',
+  paddingHorizontal: 8,
+  paddingVertical: 6,
+  borderRadius: 15,
+  marginBottom: 5,
+  minWidth: '50%',
+  textAlign: 'left',
+  position: 'relative',
+  bottom: 0,
+ // right: 50,
+},
 });
 
-//export default Profile
+//export default Profile
