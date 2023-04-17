@@ -3,7 +3,7 @@ import React from 'react';
 import { StyleSheet, View ,TextInput,TouchableOpacity,Image} from 'react-native';
 import { Text } from 'react-native';
 import { signInWithEmailAndPassword, updateCurrentUser } from "firebase/auth";
-import auth from '../firebase';
+import {auth,db} from '../firebase';
 import { useState } from 'react';
 import { provider } from '../firebase';
 import GoogleButton from 'react-google-button';
@@ -20,7 +20,7 @@ export default function SignIn({navigation}) {
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
   navigation.navigate("Welcome");
-      
+      console.log(auth.currentUser.uid)
       const user = userCredential.user;
       // ...
     })
