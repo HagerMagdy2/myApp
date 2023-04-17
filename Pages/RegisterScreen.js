@@ -14,7 +14,7 @@ import { useState } from "react";
 import { doc, setDoc } from "firebase/firestore";
 
 export default function RegisterScreen({ navigation }) {
-  //const user = auth.currentUser;
+  const user = auth.currentUser;
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
