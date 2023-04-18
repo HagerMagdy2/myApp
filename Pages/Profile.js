@@ -6,12 +6,12 @@ import {  createUserWithEmailAndPassword } from "firebase/auth";
 import {auth,db} from '../firebase';
 import { signOut } from "firebase/auth";
 import { useState } from 'react';
-import { doc, getDoc } from "firebase/firestore"; 
+import { doc, getDoc,updateDoc } from "firebase/firestore"; 
 
 export default function Profile  ({navigation})  {
   const[name , setName]=useState('');
   const[email , setEmail]=useState('');
-  const[password , setPassword]=useState('');
+  const[viewMode , setViewMode]=useState(true);
   const getUser =async()=>{
     const docRef = doc(db, "users",  auth.currentUser.uid);
     const docSnap = await getDoc(docRef);
@@ -26,9 +26,24 @@ export default function Profile  ({navigation})  {
       console.log("No such document!");
     }
 
-    
   }
-  getUser();
+  const handleSave = ()=>{
+    setViewMode(true);
+    updateUserData();
+  };
+
+  const handleEdit = ()=>{
+    setViewMode(false);
+  };
+  const updateUserData = async()=>{
+    const washingtoRef =doc(db,"users",auth.currentUser.uid);
+    await updateDoc(washingtoRef,{
+      name:name,
+      email:email,
+    });
+  };
+  //getUser();
+  {viewMode?getUser():null}
   const handleSignOut = ()=>{
     signOut(auth).then(() => {
       // Sign-out successful.
@@ -44,13 +59,15 @@ export default function Profile  ({navigation})  {
 
     <View style={styles.container}>
        <Image style={styles.image} source={require("../assets/profile.jpg")} ></Image>
-      {/* <Text style={styles.textStyle}>Profile</Text> */}
+      
+      {viewMode? (
+        <View>
       <Text  style={styles.textStyle}>email :{email}</Text>
     
       <Text style={styles.textStyle}>Name : {name}</Text>
     
       <TouchableOpacity style={styles.button}
-        onPress={getUser}>
+        onPress={handleEdit}>
       <text style={styles.statmentButton}>Edit Up</text>
       </TouchableOpacity>
       <TouchableOpacity onPress={handleSignOut}  style={styles.SignInbutton}>
@@ -60,10 +77,32 @@ export default function Profile  ({navigation})  {
     <TouchableOpacity  onPress={()=>navigation.navigate("Profile")}  style={styles.Registerbutton}>
       <Text style={styles.statmentButton}>TakeTour</Text> 
     </TouchableOpacity> 
-      
     </View>
-
+  ) : (
+    <View>
+<Text styles={styles.textStyle}>Name:</Text>
+<TextInput
+style={styles.input}
+value={name}
+onChangeText={setName}
+autoFocus
+/>
+<Text styles={styles.textStyle}>Email:</Text>
+<TextInput
+style={styles.inputE}
+value={email}
+onChangeText={setEmail}
+keyboardType='email-address'
+/>
+<TouchableOpacity style={styles.SignInbutton}
+        onPress={handleSave}>
+      <text style={styles.statmentButton}>Save</text>
+      </TouchableOpacity>
+    </View>
   )
+}
+</View>
+  );
 }
 const styles = StyleSheet.create({
   container: {
@@ -87,8 +126,8 @@ const styles = StyleSheet.create({
       borderWidth: 0.5,
       padding: 5,
       position: 'absolute',
-      right: 50,
-      bottom: 220,
+      right: -200,
+      bottom: -150,
     },
     inputE: {
       borderRadius:50,
@@ -98,8 +137,8 @@ const styles = StyleSheet.create({
       borderWidth: 0.5,
       padding: 5,
       position: 'absolute',
-      right: 50,
-      bottom: 300,
+      right: -200,
+      bottom: -200,
     },
     statmentButton: {
       color: '#fff',
@@ -116,7 +155,7 @@ const styles = StyleSheet.create({
       textAlign: 'center',
       position: 'relative',
       bottom: 0,
-     // right: 50,
+      //right: 50,
 },
 button: {
   paddingHorizontal: 8,
@@ -132,8 +171,8 @@ button: {
       minWidth: '30%',
       textAlign: 'center',
       position: 'absolute',
-       bottom: 50,
-       right: 200,
+       bottom: -250,
+       right: -10,
       width: 130,
       height:50,
      
@@ -152,8 +191,8 @@ Registerbutton:{
   minWidth: '30%',
   textAlign: 'center',
   position: 'absolute',
-   bottom: 170,
-   right: 200,
+   bottom: -400,
+   right: -10,
   width: 130,
   height:50,
  
@@ -171,13 +210,13 @@ SignInbutton:{
  // flexDirection: 'row',
   paddingHorizontal: 100,
   paddingVertical: 6,
-  borderRadius: 50,
+  borderRadius: 20,
   marginBottom: 6,
   minWidth: '30%',
   textAlign: 'center',
   position: 'absolute',
-   bottom: 110,
-   right: 200,
+   bottom: -320,
+   right: -10,
   width: 130,
  
  
