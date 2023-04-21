@@ -16,37 +16,43 @@ import { doc, setDoc } from "firebase/firestore";
 export default function RegisterScreen({ navigation }) {
   const user = auth.currentUser;
   const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [nameError, setNameError] = useState("");
+  const [phoneError, setPhoneError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
   const handleNameChange = (text) => {
     setName(text);
-    setNameError('');
+    setNameError("");
   };
 
   const handleEmailChange = (text) => {
     setEmail(text);
-    setEmailError('');
+    setEmailError("");
+  };
+  const handlePhoneChange = (text) => {
+    setPhone(text);
+    setPhoneError("");
   };
 
   const handlePasswordChange = (text) => {
     setPassword(text);
-    setPasswordError('');
+    setPasswordError("");
   };
 
   const handleSubmit = () => {
     // Perform validation
     let valid = true;
 
-    if (name.trim()==="") {
+    if (name.trim() === "") {
       setNameError("Please enter your name");
       valid = false;
     }
 
-    if (email.trim()==="") {
+    if (email.trim() === "") {
       setEmailError("Please enter your email");
       valid = false;
     } else if (!/\S+@\S+\.\S+/.test(email)) {
@@ -54,11 +60,19 @@ export default function RegisterScreen({ navigation }) {
       valid = false;
     }
 
-    if (password.trim()==="") {
+    if (password.trim() === "") {
       setPasswordError("Please enter your password");
       valid = false;
     } else if (password.length < 6) {
       setPasswordError("Password must be at least 6 characters");
+      valid = false;
+    }
+
+    if (phone.trim() === "") {
+      setPhoneError("Please enter your Phone");
+      valid = false;
+    } else if (phone.length < 11) {
+      setPhoneError("Password must be at least 11 characters");
       valid = false;
     }
 
@@ -89,6 +103,7 @@ export default function RegisterScreen({ navigation }) {
     await setDoc(doc(db, "users", auth.currentUser.uid), {
       email: email,
       name: name,
+      phone:phone,
     });
   };
   return (
@@ -97,24 +112,23 @@ export default function RegisterScreen({ navigation }) {
         style={styles.image}
         source={require("../assets/Register.jpg")}
       ></Image>
-      {/* <image source={require("../assets/cover.png")}/> */}
 
       <TouchableOpacity style={styles.button} onPress={handleSignUp}>
         <text style={styles.statmentButton}>Sign Up</text>
-        </TouchableOpacity>
-
-   
-      <TouchableOpacity style={styles.button}
-        onPress={handleSignUp}>
-      <text style={styles.statmentButton}>Sign Up</text>
-
       </TouchableOpacity>
-     
-  <View>  
-     <TouchableOpacity style={styles.HomeBtn} onPress={()=>navigation.navigate("HomeScreen")}>
-      <Text style={styles.statmentButton}>  Home  </Text> 
-    </TouchableOpacity>
-    </View>
+
+      <TouchableOpacity style={styles.button} onPress={handleSignUp}>
+        <text style={styles.statmentButton}>Sign Up</text>
+      </TouchableOpacity>
+
+      <View>
+        <TouchableOpacity
+          style={styles.HomeBtn}
+          onPress={() => navigation.navigate("HomeScreen")}
+        >
+          <Text style={styles.statmentButton}> Home </Text>
+        </TouchableOpacity>
+      </View>
 
       <TextInput
         style={styles.inputN}
@@ -123,7 +137,7 @@ export default function RegisterScreen({ navigation }) {
         placeholder="Enter Your Name"
         keyboardType="email-address"
       />
-       {nameError ? <Text style={styles.error}>{nameError}</Text> : null}
+      {nameError ? <Text style={styles.error}>{nameError}</Text> : null}
       <TextInput
         style={styles.inputE}
         onChangeText={handleEmailChange}
@@ -140,13 +154,17 @@ export default function RegisterScreen({ navigation }) {
         keyboardType="visible-password"
         secureTextEntry
       />
+      {passwordError ? <Text style={styles.error}>{passwordError}</Text> : null}
 
-      {passwordError ? (
-        <Text style={styles.error}>{passwordError}</Text>
-      ) : null}
+      <TextInput
+        style={styles.inputP}
+        onChangeText={handlePhoneChange}
+        value={phone}
+        placeholder="Enter Your Phone Number"
+        keyboardType="name-phone-pad"
+      />
+      {phoneError ? <Text style={styles.error}>{phoneError}</Text> : null}
       <StatusBar style="auto" />
-
-
     </View>
   );
 }
@@ -165,38 +183,49 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   input: {
-    borderRadius:50,
-        height: 50,
-        width: 500,
-        margin: 12,
-        borderWidth: 0.5,
-        padding: 5,
-        position: 'absolute',
-        right: 30,
-        bottom: 220,
-        fontSize: 16,
-  },
-  inputN: {
-    borderRadius:500,
+    borderRadius: 50,
     height: 50,
     width: 500,
     margin: 12,
     borderWidth: 0.5,
     padding: 5,
-    position: 'absolute',
+    position: "absolute",
+    right: 30,
+    bottom: 220,
+    fontSize: 16,
+  },
+  inputP: {
+    borderRadius: 50,
+    height: 50,
+    width: 500,
+    margin: 12,
+    borderWidth: 0.5,
+    padding: 5,
+    position: "absolute",
+    right: 30,
+    bottom: 150,
+    fontSize: 16,
+  },
+  inputN: {
+    borderRadius: 500,
+    height: 50,
+    width: 500,
+    margin: 12,
+    borderWidth: 0.5,
+    padding: 5,
+    position: "absolute",
     right: 30,
     bottom: 380,
     fontSize: 16,
-  
   },
   inputE: {
-    borderRadius:500,
+    borderRadius: 500,
     height: 50,
     width: 500,
     margin: 12,
     borderWidth: 0.5,
     padding: 5,
-    position: 'absolute',
+    position: "absolute",
     right: 30,
     bottom: 300,
     fontSize: 16,
@@ -234,57 +263,56 @@ const styles = StyleSheet.create({
     height: 50,
   },
 
+  statmentButton: {
+    color: "#FFFCF8",
+    fontFamily: "italic",
 
-      statmentButton: {
-        color: '#FFFCF8',
-        fontFamily:'italic',
-        
-        fontWeight: 'bold',
-        fontSize: 25,
-        alignSelf: 'center',
-        paddingHorizontal: 8,
-        paddingVertical: 6,
-        borderRadius: 15,
-        marginBottom: 5,
-        minWidth: '50%',
-        textAlign: 'center',
-        position: 'relative',
-        bottom: 0,
-       // right: 50,
+    fontWeight: "bold",
+    fontSize: 25,
+    alignSelf: "center",
+    paddingHorizontal: 8,
+    paddingVertical: 6,
+    borderRadius: 15,
+    marginBottom: 5,
+    minWidth: "50%",
+    textAlign: "center",
+    position: "relative",
+    bottom: 0,
+    // right: 50,
   },
   button: {
     paddingHorizontal: 8,
-        paddingVertical: 6,
-        borderRadius: 50,
-        backgroundColor: '#713522',
-        alignSelf: 'auto',
-        //marginHorizontal: '1%',
-        marginBottom: 6,
-        minWidth: '30%',
-        textAlign: 'center',
-        position: 'absolute',
-        bottom: 100,
-        right: 205,
-        width: 45,
-        height:50,
-},
-HomeBtn: {
-  paddingHorizontal: 8,
-      paddingVertical: 6,
-      borderRadius: 50,
-      fontFamily:'italic',
-      backgroundColor: '#713522',
-      alignSelf: 'auto',
-      //marginHorizontal: '1%',
-      marginBottom: 6,
-      fontWeight: 'bold',
-      minWidth: '30%',
-      textAlign: 'center',
-      position: 'absolute',
-      
-      right: -90,
-      width: 180,
-      bottom:-500,
-      height:50,
-},
+    paddingVertical: 6,
+    borderRadius: 50,
+    backgroundColor: "#713522",
+    alignSelf: "auto",
+    //marginHorizontal: '1%',
+    marginBottom: 6,
+    minWidth: "30%",
+    textAlign: "center",
+    position: "absolute",
+    bottom: 100,
+    right: 205,
+    width: 45,
+    height: 50,
+  },
+  HomeBtn: {
+    paddingHorizontal: 8,
+    paddingVertical: 6,
+    borderRadius: 50,
+    fontFamily: "italic",
+    backgroundColor: "#713522",
+    alignSelf: "auto",
+    //marginHorizontal: '1%',
+    marginBottom: 6,
+    fontWeight: "bold",
+    minWidth: "30%",
+    textAlign: "center",
+    position: "absolute",
+
+    right: -90,
+    width: 180,
+    bottom: -500,
+    height: 50,
+  },
 });
