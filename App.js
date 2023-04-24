@@ -25,15 +25,15 @@ export default function App() {
       >
         {/* <Stack.Screen name="Profile" component={Profile} /> */}
         {/* <Stack.Screen name="StartScreen" component={StartScreen} /> */}
-        {/* <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="Register" component={RegisterScreen} />
         <Stack.Screen name="SignIn" component={SignInScreen} />
         <Stack.Screen name="Forgot" component={ForgotPass} />
         <Stack.Screen name="Welcome" component={WelcomeScreen} />
         <Stack.Screen name="foo" component={foo} />
         <Stack.Screen name="Profile" component={Profile} />
-        <Stack.Screen name="Home" component={Home} /> */}
-        <Stack.Screen name="Card" component={Card} />
+        <Stack.Screen name="Home" component={Home} />
+        {/* <Stack.Screen name="Card" component={Card} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );
