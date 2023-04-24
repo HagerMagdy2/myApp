@@ -11,7 +11,7 @@ export default function Card({navigation}) {
 <Text style={{fontSize:1000},{fontWeight:'bold'}}>Main</Text>
 <Text style={{fontSize:500},{fontWeight:'bold'}}>Catigories</Text>
 
-        </View>
+        </View >
     )
    }
   return (
