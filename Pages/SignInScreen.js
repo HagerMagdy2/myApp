@@ -16,15 +16,44 @@ import GoogleButton from "react-google-button";
 import { signInWithPopup } from "firebase/auth";
 
 export default function SignIn({ navigation }) {
-  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState({});
   const user = auth.currentUser;
+
+  const handleEmailChange = (text) => {
+    setEmail(text);
+  };
+
+  const handlePasswordChange = (text) => {
+    setPassword(text);
+  };
+
+  const handleSubmit = () => {
+    const errors = {};
+
+    if (!email) {
+      errors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      errors.email = "Email is invalid";
+    }
+    if (!password) {
+      errors.password = "Password is required";
+    } else if (password.length < 6) {
+      errors.password = "Password must be at least 6 characters";
+    }
+
+    setErrors(errors);
+    if (Object.keys(errors).length === 0) {
+      //alert('Submitted!');
+      handleSignIn();
+    }
+  };
 
   const handleSignIn = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        navigation.navigate("Profile");
+        navigation.navigate("Home");
         console.log(auth.currentUser.uid);
         const user = userCredential.user;
         // ...
@@ -63,11 +92,11 @@ export default function SignIn({ navigation }) {
   }
   return (
     <View style={styles.container}>
-      <Image
+      {/* <Image
         style={styles.image}
         source={require("../assets/signIn.jpg")}
-      ></Image>
-      {/* <image source={require("../assets/cover.png")}/> */}
+      ></Image> */}
+      {/* <image source={require("../assets/signIn.jpg")}/> */}
 
       <StatusBar style="auto" />
       {/* <TextInput
@@ -78,25 +107,27 @@ export default function SignIn({ navigation }) {
         keyboardType='email-address'
       /> */}
       <TextInput
-        style={styles.inputE}
-        onChangeText={setEmail}
+        style={styles.input}
+        placeholder="Email"
         value={email}
-        placeholder="Enter Your E-Mail"
-        keyboardType="email-address"
+        onChangeText={handleEmailChange}
       />
+      {errors.email && <Text style={styles.errorText}>{errors.email}</Text>}
       <TextInput
         style={styles.input}
-        onChangeText={setPassword}
-        value={password}
-        placeholder="Enter Your Password"
-        keyboardType="visible-password"
+        placeholder="Password"
         secureTextEntry
+        value={password}
+        onChangeText={handlePasswordChange}
       />
+      {errors.password && (
+        <Text style={styles.errorText}>{errors.password}</Text>
+      )}
 
       <TouchableOpacity onPress={() => navigation.navigate("Forgot")}>
         <Text style={styles.forgot_button}>Forgot Password?</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={handleSignIn}>
+      <TouchableOpacity style={styles.button} onPress={handleSubmit}>
         <text style={styles.statmentButton}>Sign In</text>
       </TouchableOpacity>
 
@@ -135,8 +166,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   image: {
-    //flex: 1,
-    //justifyContent: 'center',
+    flex: 1,
+    justifyContent: 'center',
     width: 600,
     height: 1080,
     position: "absolute",
@@ -151,41 +182,41 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 
-  input: {
-    borderRadius: 50,
-    height: 50,
-    width: 500,
-    margin: 12,
-    borderWidth: 0.5,
-    padding: 5,
-    position: "absolute",
-    right: 30,
-    bottom: 340,
-    fontSize: 16,
-  },
-  inputN: {
-    borderRadius: 50,
-    height: 40,
-    width: 400,
-    margin: 12,
-    borderWidth: 0.5,
-    padding: 5,
-    position: "absolute",
-    right: 50,
-    bottom: 450,
-  },
-  inputE: {
-    borderRadius: 50,
-    height: 50,
-    width: 500,
-    margin: 12,
-    borderWidth: 0.5,
-    padding: 5,
-    position: "absolute",
-    right: 30,
-    bottom: 400,
-    fontSize: 18,
-  },
+  // input: {
+  //   borderRadius: 50,
+  //   height: 50,
+  //   width: 500,
+  //   margin: 12,
+  //   borderWidth: 0.5,
+  //   padding: 5,
+  //   position: "absolute",
+  //   right: 30,
+  //   bottom: 340,
+  //   fontSize: 16,
+  // },
+  // inputN: {
+  //   borderRadius: 50,
+  //   height: 40,
+  //   width: 400,
+  //   margin: 12,
+  //   borderWidth: 0.5,
+  //   padding: 5,
+  //   position: "absolute",
+  //   right: 50,
+  //   bottom: 450,
+  // },
+  // inputE: {
+  //   borderRadius: 50,
+  //   height: 50,
+  //   width: 500,
+  //   margin: 12,
+  //   borderWidth: 0.5,
+  //   padding: 5,
+  //   position: "absolute",
+  //   right: 30,
+  //   bottom: 400,
+  //   fontSize: 18,
+  // },
 
   statmentButton: {
     color: "#FFFCF8",
@@ -236,7 +267,7 @@ const styles = StyleSheet.create({
 
     right: -90,
     width: 180,
-    bottom: -500,
+    bottom: -400,
     height: 50,
   },
   goglBtn: {
@@ -255,7 +286,7 @@ const styles = StyleSheet.create({
 
     right: -250,
     width: 500,
-    bottom: -380,
+    bottom: -300,
     height: 55,
     fontSize: 18,
   },
@@ -273,7 +304,35 @@ const styles = StyleSheet.create({
     // minWidth: '50%',
     //textAlign: 'center',
     position: "relative",
-    top: 210,
+    top: 0,
     // right: 50,
   },
+  errorText: {
+    color: "red",
+    fontSize: 14,
+    fontWeight: "bold",
+    marginBottom: 10,
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: "gray",
+    padding: 10,
+    borderRadius: 5,
+    marginBottom: 20,
+    width: "80%",
+  },
+  // button: {
+  //       backgroundColor: '#713522',
+  //       borderWidth: 1,
+  //       padding: 10,
+  //       borderRadius: 9,
+  //       marginBottom:20,
+  //       width:300,
+
+  //     },
+  //     buttonText: {
+  //       color: 'white',
+  //       fontSize: Blob,
+  //       fontWeight: 'bold',
+  //     },
 });

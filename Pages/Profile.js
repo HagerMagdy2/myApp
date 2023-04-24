@@ -34,6 +34,7 @@ export default function Profile({ navigation }) {
       setName(data.name);
       setPhone(data.phone);
       setBirthday(data.birthday);
+      setProfilePhoto(data.profilePhoto);
     } else {
       // docSnap.data() will be undefined in this case
       console.log("No such document!");
@@ -72,16 +73,6 @@ export default function Profile({ navigation }) {
     }
   };
 
-  // const handleSaveBirthday = () => {
-  //   const isValidDate = moment(birthday,'MM/DD/YYYY' ,true).isValid();
-  //   if (isValidDate) {
-  //     // Save the birthday to your app's state or database
-  //     console.log('Birthday saved:', birthday);
-  //   } else {
-  //     // Show an error message or alert the user to enter a valid date
-  //     console.log('Invalid date entered');
-  //   }
-  // };
 
   const updateUserData = async () => {
     const washingtoRef = doc(db, "users", auth.currentUser.uid);
@@ -90,6 +81,7 @@ export default function Profile({ navigation }) {
       email: email,
       phone: phone,
       birthday: birthday,
+      profilePhoto:profilePhoto,
     });
   };
   //getUser();
