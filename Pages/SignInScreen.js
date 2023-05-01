@@ -92,10 +92,10 @@ export default function SignIn({ navigation }) {
   }
   return (
     <View style={styles.container}>
-      {/* <Image
+      <Image
         style={styles.image}
-        source={require("../assets/signIn.jpg")}
-      ></Image> */}
+        source={require("../assets/sin.jpg")}
+      ></Image>
       {/* <image source={require("../assets/signIn.jpg")}/> */}
 
       <StatusBar style="auto" />
@@ -168,9 +168,10 @@ const styles = StyleSheet.create({
   image: {
     flex: 1,
     justifyContent: 'center',
-    width: 600,
-    height: 1080,
+    width: 350,
+    height: 500,
     position: "absolute",
+    bottom: 650,
   },
 
   inputView: {

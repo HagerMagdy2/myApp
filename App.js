@@ -17,12 +17,6 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
- 
-      <Stack.Navigator screenOptions={{
-    headerShown: false
-  }}>
-     {/* <Stack.Screen name="Profile" component={Profile} /> */}
-
       <Stack.Navigator
         screenOptions={{
           headerShown: false,
@@ -30,7 +24,6 @@ export default function App() {
         }}
       >
         {/* <Stack.Screen name="Profile" component={Profile} /> */}
-
         <Stack.Screen name="StartScreen" component={StartScreen} />
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="Register" component={RegisterScreen} />
@@ -52,5 +45,5 @@ const styles = StyleSheet.create({
     backgroundColor: "#000",
     alignItems: "center",
     justifyContent: "center",
-  },
+},
 });
