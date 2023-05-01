@@ -102,10 +102,10 @@ export default function RegisterScreen({ navigation }) {
   };
   return (
     <View style={styles.container}>
-       {/* <Image
+       <Image
         style={styles.image}
-        source={require("../assets/Register.jpg")}
-      ></Image> */}
+        source={require("../assets/reg.jpg")}
+      ></Image>
       {/* <TouchableOpacity style={styles.button} onPress={handleSignUp}>
         <text style={styles.statmentButton}>Sign Up</text>
       </TouchableOpacity> */}
@@ -176,11 +176,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   image: {
-    //flex: 1,
-    //justifyContent: 'center',
-    width: 600,
-    height: 1080,
+    flex: 1,
+    justifyContent: 'center',
+    width: 350,
+    height: 400,
     position: "absolute",
+    bottom: 750,
   },
   
   statmentButton: {

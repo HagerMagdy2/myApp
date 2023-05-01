@@ -125,12 +125,12 @@ export default function Profile({ navigation }) {
             <Text style={styles.statmentButton}>SignOut </Text>
           </TouchableOpacity>
 
-          <TouchableOpacity
+          {/* <TouchableOpacity
             onPress={() => navigation.navigate("Home")}
             style={styles.Registerbutton}
           >
             <Text style={styles.statmentButton}>TakeTour</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
 
           <TouchableOpacity onPress={handleChoosePhoto}>
             {profilePhoto ? (
@@ -327,7 +327,7 @@ const styles = StyleSheet.create({
     minWidth: "30%",
     textAlign: "center",
     position: "absolute",
-    bottom: -350,
+    bottom: -300,
     right: 50,
     width: 130,
   },
