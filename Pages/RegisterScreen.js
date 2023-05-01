@@ -6,6 +6,7 @@ import {
   TextInput,
   TouchableOpacity,
   Image,
+  image,
 } from "react-native";
 import { Text } from "react-native";
 import { createUserWithEmailAndPassword } from "firebase/auth";
@@ -16,62 +17,69 @@ import { doc, setDoc } from "firebase/firestore";
 export default function RegisterScreen({ navigation }) {
   const user = auth.currentUser;
   const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [nameError, setNameError] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [errors, setErrors] = useState({});
 
   const handleNameChange = (text) => {
     setName(text);
-    setNameError('');
+  };
+
+  const handlePhoneChange = (text) => {
+    setPhone(text);
   };
 
   const handleEmailChange = (text) => {
     setEmail(text);
-    setEmailError('');
   };
 
   const handlePasswordChange = (text) => {
     setPassword(text);
-    setPasswordError('');
+  };
+
+  const handleConfirmPasswordChange = (text) => {
+    setConfirmPassword(text);
   };
 
   const handleSubmit = () => {
-    // Perform validation
-    let valid = true;
-
-    if (name.trim()==="") {
-      setNameError("Please enter your name");
-      valid = false;
+    const errors = {};
+    if (!name) {
+      errors.name = 'Name is required';
     }
-
-    if (email.trim()==="") {
-      setEmailError("Please enter your email");
-      valid = false;
+    if (!email) {
+      errors.email = 'Email is required';
     } else if (!/\S+@\S+\.\S+/.test(email)) {
-      setEmailError("Please enter a valid email address");
-      valid = false;
+      errors.email = 'Email is invalid';
     }
-
-    if (password.trim()==="") {
-      setPasswordError("Please enter your password");
-      valid = false;
+    if (!password) {
+      errors.password = 'Password is required';
     } else if (password.length < 6) {
-      setPasswordError("Password must be at least 6 characters");
-      valid = false;
+      errors.password = 'Password must be at least 6 characters';
     }
-
-    if (valid) {
-      // Submit form
+    if (!confirmPassword) {
+      errors.confirmPassword = 'Confirm Password is required';
+    } else if (password !== confirmPassword) {
+      errors.confirmPassword = 'Passwords do not match';
+    }
+    if (!phone) {
+      errors.phone = 'Phone is required';
+    } else if (phone.length < 11) {
+      errors.phone = 'Phone must be at least 11 characters';
+    }
+    setErrors(errors);
+    if (Object.keys(errors).length === 0) {
+      //alert('Submitted!');
       handleSignUp();
     }
   };
 
+
   const handleSignUp = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        navigation.navigate("Profile");
+        navigation.navigate("Home");
         console.log("Done");
 
         const user = userCredential.user;
@@ -89,64 +97,74 @@ export default function RegisterScreen({ navigation }) {
     await setDoc(doc(db, "users", auth.currentUser.uid), {
       email: email,
       name: name,
+      phone:phone,
     });
   };
   return (
     <View style={styles.container}>
-      <Image
+       {/* <Image
         style={styles.image}
         source={require("../assets/Register.jpg")}
-      ></Image>
-      {/* <image source={require("../assets/cover.png")}/> */}
-
-      <TouchableOpacity style={styles.button} onPress={handleSignUp}>
+      ></Image> */}
+      {/* <TouchableOpacity style={styles.button} onPress={handleSignUp}>
         <text style={styles.statmentButton}>Sign Up</text>
-        </TouchableOpacity>
+      </TouchableOpacity> */}
+      
 
-   
-      <TouchableOpacity style={styles.button}
-        onPress={handleSignUp}>
-      <text style={styles.statmentButton}>Sign Up</text>
-
+      <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+        <text style={styles.statmentButton}>Sign Up</text>
       </TouchableOpacity>
-     
-  <View>  
-     <TouchableOpacity style={styles.HomeBtn} onPress={()=>navigation.navigate("HomeScreen")}>
-      <Text style={styles.statmentButton}>  Home  </Text> 
-    </TouchableOpacity>
-    </View>
 
-      <TextInput
-        style={styles.inputN}
-        onChangeText={handleNameChange}
-        value={name}
-        placeholder="Enter Your Name"
-        keyboardType="email-address"
-      />
-       {nameError ? <Text style={styles.error}>{nameError}</Text> : null}
-      <TextInput
-        style={styles.inputE}
-        onChangeText={handleEmailChange}
-        value={email}
-        placeholder="Enter Your E-Mail"
-        keyboardType="email-address"
-      />
-      {emailError ? <Text style={styles.error}>{emailError}</Text> : null}
+      <View>
+        <TouchableOpacity
+          style={styles.HomeBtn}
+          onPress={() => navigation.navigate("HomeScreen")}
+        >
+          <Text style={styles.statmentButton}> Home </Text>
+        </TouchableOpacity>
+      </View>
+
       <TextInput
         style={styles.input}
-        onChangeText={handlePasswordChange}
-        value={password}
-        placeholder="Enter Your Password"
-        keyboardType="visible-password"
-        secureTextEntry
+        placeholder="Name"
+        value={name}
+        onChangeText={handleNameChange}
       />
-
-      {passwordError ? (
-        <Text style={styles.error}>{passwordError}</Text>
-      ) : null}
-      <StatusBar style="auto" />
-
-
+      {errors.name && <Text style={styles.errorText}>{errors.name}</Text>}
+      <TextInput
+        style={styles.input}
+        placeholder="Email"
+        value={email}
+        onChangeText={handleEmailChange}
+      />
+      {errors.email && <Text style={styles.errorText}>{errors.email}</Text>}
+      <TextInput
+        style={styles.input}
+        placeholder="Password"
+        secureTextEntry
+        value={password}
+        onChangeText={handlePasswordChange}
+      />
+      {errors.password && <Text style={styles.errorText}>{errors.password}</Text>}
+      <TextInput
+        style={styles.input}
+        placeholder="Confirm Password"
+        secureTextEntry
+        value={confirmPassword}
+        onChangeText={handleConfirmPasswordChange}
+      />
+      {errors.confirmPassword && (
+        <Text style={styles.errorText}>{errors.confirmPassword}</Text>
+      )}
+       <TextInput
+        style={styles.input}
+        placeholder="Enter your Phone"
+        value={phone}
+        onChangeText={handlePhoneChange}
+      />
+     <Text style={styles.errorText}>{errors.phone}</Text>
+      {/* <StatusBar style="auto" /> */}
+     
     </View>
   );
 }
@@ -164,43 +182,7 @@ const styles = StyleSheet.create({
     height: 1080,
     position: "absolute",
   },
-  input: {
-    borderRadius:50,
-        height: 50,
-        width: 500,
-        margin: 12,
-        borderWidth: 0.5,
-        padding: 5,
-        position: 'absolute',
-        right: 30,
-        bottom: 220,
-        fontSize: 16,
-  },
-  inputN: {
-    borderRadius:500,
-    height: 50,
-    width: 500,
-    margin: 12,
-    borderWidth: 0.5,
-    padding: 5,
-    position: 'absolute',
-    right: 30,
-    bottom: 380,
-    fontSize: 16,
   
-  },
-  inputE: {
-    borderRadius:500,
-    height: 50,
-    width: 500,
-    margin: 12,
-    borderWidth: 0.5,
-    padding: 5,
-    position: 'absolute',
-    right: 30,
-    bottom: 300,
-    fontSize: 16,
-  },
   statmentButton: {
     color: "#FFFCF8",
     fontFamily: "italic",
@@ -234,26 +216,26 @@ const styles = StyleSheet.create({
     height: 50,
   },
 
+  statmentButton: {
+    color: "#FFFCF8",
+    fontFamily: "italic",
 
-      statmentButton: {
-        color: '#FFFCF8',
-        fontFamily:'italic',
-        
-        fontWeight: 'bold',
-        fontSize: 25,
-        alignSelf: 'center',
-        paddingHorizontal: 8,
-        paddingVertical: 6,
-        borderRadius: 15,
-        marginBottom: 5,
-        minWidth: '50%',
-        textAlign: 'center',
-        position: 'relative',
-        bottom: 0,
-       // right: 50,
+    fontWeight: "bold",
+    fontSize: 25,
+    alignSelf: "center",
+    paddingHorizontal: 8,
+    paddingVertical: 6,
+    borderRadius: 15,
+    marginBottom: 5,
+    minWidth: "50%",
+    textAlign: "center",
+    position: "relative",
+    bottom: 0,
+    // right: 50,
   },
   button: {
     paddingHorizontal: 8,
+<<<<<<< HEAD
         paddingVertical: 6,
         borderRadius: 50,
         backgroundColor: '#713522',
@@ -288,3 +270,53 @@ HomeBtn: {
       height:50,
 },
 });
+=======
+    paddingVertical: 6,
+    borderRadius: 50,
+    backgroundColor: "#713522",
+    alignSelf: "auto",
+    //marginHorizontal: '1%',
+    marginBottom: 6,
+    minWidth: "30%",
+    textAlign: "center",
+    position: "absolute",
+    bottom: 100,
+    right: 205,
+    width: 45,
+    height: 50,
+  },
+  HomeBtn: {
+    paddingHorizontal: 8,
+    paddingVertical: 6,
+    borderRadius: 50,
+    fontFamily: "italic",
+    backgroundColor: "#713522",
+    alignSelf: "auto",
+    //marginHorizontal: '1%',
+    marginBottom: 6,
+    fontWeight: "bold",
+    minWidth: "30%",
+    textAlign: "center",
+    position: "absolute",
+
+    right: -90,
+    width: 180,
+    bottom: -500,
+    height: 50,
+  },
+  errorText: {
+    color: 'red',
+    fontSize: 14,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: 'gray',
+    padding: 10,
+    borderRadius: 5,
+    marginBottom: 20,
+    width: '80%',
+  },
+});
+>>>>>>> 7d52a1d21d4397e9c6756e5e7a310b3fc2b9d93b
