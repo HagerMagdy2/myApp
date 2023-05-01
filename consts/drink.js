@@ -25,6 +25,8 @@ const drink = [
       id: '4',
       name: 'LATTE MAXIMUS',
       ingredients: 'LATTE MAXIMUS',
+
+      
       price: '9.55',
       image: require('../assets/LATTE MAXIMUS.jpg'),
     },
