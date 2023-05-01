@@ -1,17 +1,25 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View ,SafeAreaView,FlatList} from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { ScrollView } from 'react-native-web';
 import { Ionicons} from '@expo/vector-icons';
 import { ScreenStackHeaderRightView } from 'react-native-screens';
 
+
+import react from 'react';
+
 export default function Card({navigation}) {
+
+  const [selectedCategoryIndex,setSelectedCategoryIndex]=react.useState(0);
+ 
    function RenderHeader(){
     return(
         <View style={{padding:100}}  >
-<Text style={{fontSize:1000},{fontWeight:'bold'}}>Main</Text>
-<Text style={{fontSize:500},{fontWeight:'bold'}}>Catigories</Text>
+<Text style={{fontSize:30 ,fontWeight:'bold'}}>Main</Text>
+<Text style={{fontSize:30 , fontWeight:'bold'}}>Catigories</Text>
 
         </View >
+
     )
    }
   return (
@@ -45,5 +53,11 @@ const styles = StyleSheet.create({
       searchicons:{
        right:-50,
         top:0,
+      },
+      categoriesListContainer:{
+        paddingVertical:30,
+        paddingHorizontal:20,
+        alignItems:'center',
+        
       },
 })
