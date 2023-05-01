@@ -8,8 +8,8 @@ export default function Card({navigation}) {
    function RenderHeader(){
     return(
         <View style={{padding:100}}  >
-<Text style={{fontSize:1000},{fontWeight:'bold'}}>Main</Text>
-<Text style={{fontSize:500},{fontWeight:'bold'}}>Catigories</Text>
+<Text style={{fontSize:1000 ,fontWeight:'bold'}}>Main</Text>
+<Text style={{fontSize:500 ,fontWeight:'bold'}}>Catigories</Text>
 
         </View >
     )
