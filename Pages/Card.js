@@ -3,6 +3,7 @@ import { StyleSheet, Text, TextInput, TouchableOpacity, View ,SafeAreaView,FlatL
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons} from '@expo/vector-icons';
 import { ScreenStackHeaderRightView } from 'react-native-screens';
+import Services from "../components/Services";
 
 export default function Card({navigation}) {
    function RenderHeader(){
@@ -15,9 +16,7 @@ export default function Card({navigation}) {
     )
    }
   return (
-    <SafeAreaView style={styles.container}> 
-    {RenderHeader()}
-    </SafeAreaView>
+    <Services />
   )
 }
 
