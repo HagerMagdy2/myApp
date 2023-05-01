@@ -36,15 +36,18 @@ export default function HomeScreen({ navigation }) {
         <StatusBar style="auto" />
       </View>
       <View>
-        <TouchableOpacity onPress={handleSignOut} style={styles.SignInbutton}>
-          <Text style={styles.statmentButton}>SignOut </Text>
+      <Image style={styles.imageh} source={require("../assets/hot.jpg")}></Image>
+      
+        <TouchableOpacity onPress={() => navigation.navigate("Profile")} style={styles.SignInbutton}>
+          <Text style={styles.statmentButton}>HotCoffe </Text>
         </TouchableOpacity>
-
+        <Image style={styles.imagec} source={require("../assets/ice.jpg")}></Image>
+      
         <TouchableOpacity
           onPress={() => navigation.navigate("Profile")}
           style={styles.Registerbutton}
         >
-          <Text style={styles.statmentButton}>TakeTour</Text>
+          <Text style={styles.statmentButton}>IcedCoffe</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -63,6 +66,29 @@ const styles = StyleSheet.create({
     width: 600,
     height: 1080,
     position: "absolute",
+    
+  },
+  imageh: {
+    //flex: 1,
+    //justifyContent: 'center',
+    width: 200,
+    height: 300,
+    position: "absolute",
+    bottom: -350,
+    right: -270,
+    width: 250,
+    height: 250,
+  },
+  imagec: {
+    //flex: 1,
+    //justifyContent: 'center',
+    width: 200,
+    height: 300,
+    position: "absolute",
+    bottom: -350,
+    right: 40,
+    width: 250,
+    height: 250,
   },
   Registerbutton: {
     width: "50%",
@@ -78,13 +104,13 @@ const styles = StyleSheet.create({
     minWidth: "30%",
     textAlign: "center",
     position: "absolute",
-    bottom: -200,
-    right: -100,
-    width: 130,
+    bottom: -400,
+    right: 32,
+    width: 260,
     height: 50,
   },
   SignInbutton: {
-    width: "50%",
+   // width: "50%",
     borderRadius: 20,
     height: 50,
     alignItems: "center",
@@ -96,12 +122,12 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
     borderRadius: 50,
     marginBottom: 6,
-    minWidth: "30%",
+    minWidth: "50%",
     textAlign: "center",
     position: "absolute",
-    bottom: -300,
-    right: -100,
-    width: 130,
+    bottom: -400,
+    right: -270,
+    width: 250,
   },
   statmentButton: {
     color: "#FFFCF8",
@@ -114,10 +140,10 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
     borderRadius: 15,
     marginBottom: 5,
-    minWidth: "50%",
+    minWidth: "100%",
     textAlign: "center",
-    position: "relative",
-    bottom: 0,
+    
+    
     // right: 50,
   },
   statButton: {

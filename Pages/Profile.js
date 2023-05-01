@@ -70,6 +70,7 @@ export default function Profile({ navigation }) {
     });
     if (!result.cancelled) {
       setProfilePhoto(result.uri);
+      
     }
   };
 
@@ -119,7 +120,7 @@ export default function Profile({ navigation }) {
           <Text style={styles.textStyle}>Birthday : {birthday}</Text>
 
           <TouchableOpacity style={styles.button} onPress={handleEdit}>
-            <text style={styles.statmentButton}>Edit Up</text>
+            <text style={styles.statmentButton}>Edit </text>
           </TouchableOpacity>
           <TouchableOpacity onPress={handleSignOut} style={styles.SignInbutton}>
             <Text style={styles.statmentButton}>SignOut </Text>
@@ -136,7 +137,7 @@ export default function Profile({ navigation }) {
             {profilePhoto ? (
               <Image
                 source={{ uri: profilePhoto }}
-                style={styles.profilePhoto}
+                style={styles.profilePhoto2}
               />
             ) : (
               <View style={styles.placeholder}>
@@ -183,7 +184,7 @@ export default function Profile({ navigation }) {
             {profilePhoto ? (
               <Image
                 source={{ uri: profilePhoto }}
-                style={styles.profilePhoto}
+                style={styles.profilePhoto2}
               />
             ) : (
               <View style={styles.placeholder}>
@@ -352,6 +353,13 @@ const styles = StyleSheet.create({
     width: 150,
     height: 150,
     borderRadius: 75,
+  },
+  profilePhoto2: {
+    width: 150,
+    height: 150,
+    borderRadius: 75,
+    bottom: 300,
+    right: -70,
   },
   placeholder: {
     width: 150,
