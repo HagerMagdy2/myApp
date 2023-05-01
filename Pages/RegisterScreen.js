@@ -236,42 +236,6 @@ const styles = StyleSheet.create({
   },
   button: {
     paddingHorizontal: 8,
-<<<<<<< HEAD
-        paddingVertical: 6,
-        borderRadius: 50,
-        backgroundColor: '#713522',
-        alignSelf: 'auto',
-        //marginHorizontal: '1%',
-        marginBottom: 6,
-        minWidth: '30%',
-        textAlign: 'center',
-        position: 'absolute',
-        bottom: 100,
-        right: 205,
-        width: 45,
-        height:50,
-},
-HomeBtn: {
-  paddingHorizontal: 8,
-      paddingVertical: 6,
-      borderRadius: 50,
-      fontFamily:'italic',
-      backgroundColor: '#713522',
-      alignSelf: 'auto',
-      //marginHorizontal: '1%',
-      marginBottom: 6,
-      fontWeight: 'bold',
-      minWidth: '30%',
-      textAlign: 'center',
-      position: 'absolute',
-      
-      right: -90,
-      width: 180,
-      bottom:-500,
-      height:50,
-},
-});
-=======
     paddingVertical: 6,
     borderRadius: 50,
     backgroundColor: "#713522",
@@ -318,6 +282,5 @@ HomeBtn: {
     borderRadius: 5,
     marginBottom: 20,
     width: '80%',
-  },
+},
 });
->>>>>>> 7d52a1d21d4397e9c6756e5e7a310b3fc2b9d93b
