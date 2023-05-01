@@ -70,6 +70,7 @@ export default function Profile({ navigation }) {
     });
     if (!result.cancelled) {
       setProfilePhoto(result.uri);
+      
     }
   };
 
@@ -125,18 +126,18 @@ export default function Profile({ navigation }) {
             <Text style={styles.statmentButton}>SignOut </Text>
           </TouchableOpacity>
 
-          {/* <TouchableOpacity
+          <TouchableOpacity
             onPress={() => navigation.navigate("Home")}
             style={styles.Registerbutton}
           >
             <Text style={styles.statmentButton}>TakeTour</Text>
-          </TouchableOpacity> */}
+          </TouchableOpacity>
 
           <TouchableOpacity onPress={handleChoosePhoto}>
             {profilePhoto ? (
               <Image
                 source={{ uri: profilePhoto }}
-                style={styles.profilePhoto}
+                style={styles.profilePhoto2}
               />
             ) : (
               <View style={styles.placeholder}>
@@ -183,7 +184,7 @@ export default function Profile({ navigation }) {
             {profilePhoto ? (
               <Image
                 source={{ uri: profilePhoto }}
-                style={styles.profilePhoto}
+                style={styles.profilePhoto2}
               />
             ) : (
               <View style={styles.placeholder}>
@@ -327,7 +328,7 @@ const styles = StyleSheet.create({
     minWidth: "30%",
     textAlign: "center",
     position: "absolute",
-    bottom: -300,
+    bottom: -350,
     right: 50,
     width: 130,
   },
@@ -352,6 +353,13 @@ const styles = StyleSheet.create({
     width: 150,
     height: 150,
     borderRadius: 75,
+  },
+  profilePhoto2: {
+    width: 150,
+    height: 150,
+    borderRadius: 75,
+    bottom: 300,
+    right: -70,
   },
   placeholder: {
     width: 150,
