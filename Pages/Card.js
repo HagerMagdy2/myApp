@@ -10,7 +10,7 @@ import react from 'react';
 
 export default function Card({navigation}) {
 
-  const [selectedCategoryIndex,setSelectedCategoryIndex]=react.useState(0);
+
  
    function RenderHeader(){
     return(
@@ -54,10 +54,5 @@ const styles = StyleSheet.create({
        right:-50,
         top:0,
       },
-      categoriesListContainer:{
-        paddingVertical:30,
-        paddingHorizontal:20,
-        alignItems:'center',
-        
-      },
+     
 })
