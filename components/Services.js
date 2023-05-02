@@ -29,7 +29,7 @@ const Services = () => {
     {
         id: "14",
         image: "https://th.bing.com/th/id/OIP.eEEgUz95vp0o5d9kzvdWUgAAAA?w=221&h=183&c=7&r=0&o=5&pid=1.7",
-        name: "Hot Coclate",
+        name: "Hot Choclate",
        
       },
    
