@@ -152,7 +152,7 @@ export default function Profile({ navigation }) {
           <TextInput
             style={styles.input}
             value={name}
-            placeholder="Enter your Name"
+            placeholder="Edit your Name"
             onChangeText={setName}
             autoFocus
           />
@@ -161,7 +161,7 @@ export default function Profile({ navigation }) {
             style={styles.inputE}
             value={email}
             onChangeText={setEmail}
-            placeholder="Enter your Email"
+            placeholder="Edit your Email"
             keyboardType="email-address"
           />
           <Text styles={styles.textStyle}></Text>
@@ -169,7 +169,7 @@ export default function Profile({ navigation }) {
             style={styles.inputP}
             value={phone}
             onChangeText={setPhone}
-            placeholder="Enter your Phone number"
+            placeholder="Edit your Phone number"
             keyboardType="phone-pad"
             autoFocus
           />
@@ -366,7 +366,7 @@ const styles = StyleSheet.create({
     height: 150,
     borderRadius: 75,
     bottom: 300,
-    right: -70,
+    right: -60,
   },
   placeholder: {
     width: 150,

@@ -133,13 +133,13 @@ import React from "react";
 //     dispatch(incrementQty(item)); // product
 //   };
   return (
-    <View>
+    <View style={styles.containrt}>
 
 
         <View>
           <Image
             style={{ width: 580, height: 450}}
-            source={require("../assets/7.jpeg")}
+            source={require("../assets/co1.jpg")}
           />
         </View>
 <ScrollView horizontal showsHorizontalScrollIndicator={false}>
@@ -223,4 +223,9 @@ import React from "react";
 
 export default Items;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+containrt:{
+backgroundColor:"#F4F1EF"
+},
+
+});
