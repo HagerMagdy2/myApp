@@ -133,12 +133,22 @@ import React from "react";
 //     dispatch(incrementQty(item)); // product
 //   };
   return (
+
     <View style={styles.container}>
  
         <View>
           <Image
             style={{ width :589, height: 450}}
             source={require("../assets/menu.jpg")}
+</View>
+    <View style={styles.containrt}>
+
+
+        <View>
+          <Image
+            style={{ width: 580, height: 450}}
+            source={require("../assets/co1.jpg")}
+
           />
         </View>
         <Text style={{fontSize:16,fontWeight:"500",marginBottom:7}}>Main Catigories</Text>
@@ -226,6 +236,7 @@ import React from "react";
 export default Items;
 
 const styles = StyleSheet.create({
+
  
     container: {
       
@@ -241,4 +252,10 @@ const styles = StyleSheet.create({
       // alignItems: "center",
       //justifyContent: "center",
     },
+
+containrt:{
+backgroundColor:"#F4F1EF"
+},
+
+
 });

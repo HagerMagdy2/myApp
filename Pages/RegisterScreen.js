@@ -112,7 +112,7 @@ export default function RegisterScreen({ navigation }) {
       
 
       <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-        <text style={styles.statmentButton}>Sign Up</text>
+        <text style={styles.statmentButton}>REGISTER</text>
       </TouchableOpacity>
 
       <View>
@@ -120,7 +120,7 @@ export default function RegisterScreen({ navigation }) {
           style={styles.HomeBtn}
           onPress={() => navigation.navigate("HomeScreen")}
         >
-          <Text style={styles.statmentButton}> Home </Text>
+          <Text style={styles.statmentButton}> HOME </Text>
         </TouchableOpacity>
       </View>
 
@@ -245,7 +245,7 @@ const styles = StyleSheet.create({
     minWidth: "30%",
     textAlign: "center",
     position: "absolute",
-    bottom: 100,
+    bottom: 200,
     right: 205,
     width: 45,
     height: 50,
@@ -266,7 +266,7 @@ const styles = StyleSheet.create({
 
     right: -90,
     width: 180,
-    bottom: -500,
+    bottom: -570,
     height: 50,
   },
   errorText: {
@@ -282,5 +282,5 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginBottom: 20,
     width: '80%',
-  },
+},
 });
