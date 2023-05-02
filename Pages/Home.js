@@ -8,6 +8,7 @@ import WelcomeScreen from './WelcomeScreen';
 import Profile from './Profile';
 import Card from './Card';
 import Favorites from './Favorites';
+import Ho from './Ho'
 
 
 const Tab = createBottomTabNavigator();
@@ -41,7 +42,7 @@ export default function Home({navigation}) {
       }}
      
     >
-      <Tab.Screen name="Home" component={WelcomeScreen} />
+      <Tab.Screen name="Home" component={Ho} />
       <Tab.Screen name="Card" component={Card} />
       <Tab.Screen name="Favorites" component={Favorites} />
       <Tab.Screen name="Profile" component={Profile} />

@@ -6,16 +6,12 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 const StartScreen = ({navigation}) => {
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
-      <View style={{height:400}}>
-        <Image
-           style={style.image}//{
-          //   width: '100%',
-          //   resizeMode: 'contain',
-          //   top: -150,
-          // }}
-          source={require('../assets/photo.png')}
-        />
-      </View>
+       <View>
+          <Image
+            style={{ width: 580, height: 450}}
+            source={require("../assets/7.jpeg")}
+          />
+        </View>
       <View style={style.textContainer}>
         <View>
           <Text style={{fontSize: 32, fontWeight: 'bold', textAlign: 'center'}}>
