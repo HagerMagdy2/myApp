@@ -18,7 +18,7 @@ import { ScreenStackHeaderRightView } from "react-native-screens";
 import Services from "../components/Services";
 import Items from "../components/Items";
 
-export default function Card({ navigation }) {
+export default function Ho({ navigation }) {
   // const [items,setItems] = useState([]);
   // const product = useSelector((state) => state.product.product);
 

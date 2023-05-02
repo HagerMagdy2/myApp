@@ -120,7 +120,7 @@ export default function Profile({ navigation }) {
           <Text style={styles.textStyle}>Birthday : {birthday}</Text>
 
           <TouchableOpacity style={styles.button} onPress={handleEdit}>
-            <text style={styles.statmentButton}>Edit Up</text>
+            <text style={styles.statmentButton}>Edit </text>
           </TouchableOpacity>
           <TouchableOpacity onPress={handleSignOut} style={styles.SignInbutton}>
             <Text style={styles.statmentButton}>SignOut </Text>
