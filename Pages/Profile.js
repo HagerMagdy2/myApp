@@ -111,7 +111,7 @@ export default function Profile({ navigation }) {
 
       {viewMode ? (
         <View>
-          <Text style={styles.textStyle}>email :{email}</Text>
+          <Text style={styles.textStyle}>Email :{email}</Text>
 
           <Text style={styles.textStyle}>Name : {name}</Text>
 
@@ -148,25 +148,28 @@ export default function Profile({ navigation }) {
         </View>
       ) : (
         <View>
-          <Text styles={styles.textStyle}>Name:</Text>
+          <Text styles={styles.textStyle}></Text>
           <TextInput
             style={styles.input}
             value={name}
+            placeholder="Edit your Name"
             onChangeText={setName}
             autoFocus
           />
-          <Text styles={styles.textStyle}>Email:</Text>
+          <Text styles={styles.textStyle}></Text>
           <TextInput
             style={styles.inputE}
             value={email}
             onChangeText={setEmail}
+            placeholder="Edit your Email"
             keyboardType="email-address"
           />
-          <Text styles={styles.textStyle}>Phone:</Text>
+          <Text styles={styles.textStyle}></Text>
           <TextInput
             style={styles.inputP}
             value={phone}
             onChangeText={setPhone}
+            placeholder="Edit your Phone number"
             keyboardType="phone-pad"
             autoFocus
           />
@@ -219,8 +222,9 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     padding: 5,
     position: "absolute",
-    right: -200,
-    bottom: -150,
+  
+    right: -150,
+    bottom: -100,
   },
   inputE: {
     borderRadius: 7,
@@ -230,8 +234,8 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     padding: 5,
     position: "absolute",
-    right: -200,
-    bottom: -200,
+    right: -150,
+    bottom: -50,
   },
   inputP: {
     borderRadius: 7,
@@ -241,8 +245,8 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     padding: 5,
     position: "absolute",
-    right: -200,
-    bottom: -250,
+    right: -150,
+    bottom: -150,
     fontSize: 16,
   },
   inputB: {
@@ -253,8 +257,8 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     padding: 5,
     position: "absolute",
-    right: -200,
-    bottom: -300,
+    right: -150,
+    bottom: -200,
     fontSize: 16,
   },
   statmentButton: {
@@ -353,13 +357,16 @@ const styles = StyleSheet.create({
     width: 150,
     height: 150,
     borderRadius: 75,
+    bottom: 300,
+    right: -70,
+   
   },
   profilePhoto2: {
     width: 150,
     height: 150,
     borderRadius: 75,
     bottom: 300,
-    right: -70,
+    right: -60,
   },
   placeholder: {
     width: 150,
