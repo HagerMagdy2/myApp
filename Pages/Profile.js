@@ -111,7 +111,7 @@ export default function Profile({ navigation }) {
 
       {viewMode ? (
         <View>
-          <Text style={styles.textStyle}>email :{email}</Text>
+          <Text style={styles.textStyle}>Email :{email}</Text>
 
           <Text style={styles.textStyle}>Name : {name}</Text>
 
@@ -120,7 +120,7 @@ export default function Profile({ navigation }) {
           <Text style={styles.textStyle}>Birthday : {birthday}</Text>
 
           <TouchableOpacity style={styles.button} onPress={handleEdit}>
-            <text style={styles.statmentButton}>Edit Up</text>
+            <text style={styles.statmentButton}>Edit </text>
           </TouchableOpacity>
           <TouchableOpacity onPress={handleSignOut} style={styles.SignInbutton}>
             <Text style={styles.statmentButton}>SignOut </Text>
@@ -148,24 +148,27 @@ export default function Profile({ navigation }) {
         </View>
       ) : (
         <View>
-          <Text styles={styles.textStyle}>Name:</Text>
+          <Text styles={styles.textStyle}></Text>
           <TextInput
             style={styles.input}
             value={name}
+            placeholder="Enter Your Name"
             onChangeText={setName}
             autoFocus
           />
-          <Text styles={styles.textStyle}>Email:</Text>
+          <Text styles={styles.textStyle}></Text>
           <TextInput
             style={styles.inputE}
             value={email}
+            placeholder="Enter Your E-mail"
             onChangeText={setEmail}
             keyboardType="email-address"
           />
-          <Text styles={styles.textStyle}>Phone:</Text>
+          <Text styles={styles.textStyle}></Text>
           <TextInput
             style={styles.inputP}
             value={phone}
+            placeholder="Enter Your Phone"
             onChangeText={setPhone}
             keyboardType="phone-pad"
             autoFocus
