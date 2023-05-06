@@ -5,48 +5,33 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 
 const StartScreen = ({navigation}) => {
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
-       <View>
+    <View style={style.container}>
+     
           <Image
-            style={{ width: 580, height: 450}}
-            source={require("../assets/7.jpeg")}
+            style={{ width: "100%", height: "100%"}}
+            source={require("../assets/pstart.webp")}
           />
-        </View>
-      <View style={style.textContainer}>
-        <View>
-          <Text style={{fontSize: 32, fontWeight: 'bold', textAlign: 'center'}}>
-            Delicious Coffee
-          </Text>
-          <Text
-            style={{
-              marginTop: 20,
-              fontSize: 22,
-              textAlign: 'center',
-              color: 'grey',
-            }}>
-            We help you to find best and delicious drink
-          </Text>
-        </View>
-        <View style={style.indicatorContainer}>
-          <View style={style.currentIndicator} />
-          <View style={style.indicator} />
-          <View style={style.indicator} />
-        </View>
-        {/* <TouchableOpacity onPress={() => navigation.navigate('Home')}
-          >title="Get Started"</TouchableOpacity> */}
-
+       
+      
+<View>
  <TouchableOpacity  onPress={() => navigation.navigate('HomeScreen')} style={style.btnContainer}>
-       <View style={style.btnContainer}> 
+      
         <Text style={style.title}>Get Started</Text> 
-      </View> 
+  
    </TouchableOpacity>
-         
+   </View>  
       </View>
-    </SafeAreaView>
+      
   );
 };
 
 const style = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
   textContainer: {
     flex: 1,
     paddingHorizontal: 50,
@@ -90,11 +75,20 @@ const style = StyleSheet.create({
   },
   title: {color: 'white', fontWeight: 'bold', fontSize: 18},
   btnContainer: {
+    paddingHorizontal: 8,
+    paddingVertical: 6,
+    borderRadius: 5,
     backgroundColor: "#713522",
-    height: 60,
-    borderRadius: 30,
-    justifyContent: 'center',
-    alignItems: 'center',
+    alignSelf: "auto",
+    //marginHorizontal: '1%',
+    marginBottom: 6,
+    minWidth: "30%",
+    textAlign: "center",
+ 
+  
+    
+    width: 589,
+    height: 80,
   },
 });
 

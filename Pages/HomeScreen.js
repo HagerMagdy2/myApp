@@ -14,7 +14,7 @@ export default function HomeScreen({ navigation }) {
     <View style={styles.container}>
       <Image
         style={styles.image}
-        source={require("../assets/Homee.jpg")}
+        source={require("../assets/pstart5.jpg")}
       ></Image>
       {/* <image source={require("../assets/cover.png")}/> */}
 
