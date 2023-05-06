@@ -15,6 +15,8 @@ export default function HomeScreen({ navigation }) {
       <Image
         style={styles.image}
         source={require("../assets/pstart5.jpg")}
+
+        
       ></Image>
       {/* <image source={require("../assets/cover.png")}/> */}
 
@@ -49,6 +51,7 @@ const styles = StyleSheet.create({
     width: 600,
     height: 1080,
     position: "absolute",
+    
   },
   Registerbutton: {
     width: "50%",

@@ -106,7 +106,7 @@ export default function Profile({ navigation }) {
     <View style={styles.container}>
       <Image
         style={styles.image}
-        source={require("../assets/profile.jpg")}
+        source={require("../assets/prof.jpg")}
       ></Image>
 
       {viewMode ? (
@@ -125,13 +125,13 @@ export default function Profile({ navigation }) {
           <TouchableOpacity onPress={handleSignOut} style={styles.SignInbutton}>
             <Text style={styles.statmentButton}>SignOut </Text>
           </TouchableOpacity>
-
+{/* 
           <TouchableOpacity
             onPress={() => navigation.navigate("Home")}
             style={styles.Registerbutton}
           >
             <Text style={styles.statmentButton}>TakeTour</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
 
           <TouchableOpacity onPress={handleChoosePhoto}>
             {profilePhoto ? (
@@ -292,7 +292,7 @@ const styles = StyleSheet.create({
     minWidth: "30%",
     textAlign: "center",
     position: "absolute",
-    bottom: -210,
+    bottom: -280,
     right: 50,
     width: 130,
     height: 50,
@@ -356,7 +356,7 @@ const styles = StyleSheet.create({
   profilePhoto: {
     width: 150,
     height: 150,
-    borderRadius: 75,
+    borderRadius: 10,
     bottom: 300,
     right: -70,
    
@@ -364,14 +364,14 @@ const styles = StyleSheet.create({
   profilePhoto2: {
     width: 150,
     height: 150,
-    borderRadius: 75,
+    borderRadius: 10  ,
     bottom: 300,
     right: -60,
   },
   placeholder: {
     width: 150,
     height: 150,
-    borderRadius: 75,
+    borderRadius: 10,
     backgroundColor: "#eee",
     alignItems: "center",
     justifyContent: "center",
