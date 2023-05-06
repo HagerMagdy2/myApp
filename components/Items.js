@@ -133,14 +133,6 @@ import React from "react";
 //     dispatch(incrementQty(item)); // product
 //   };
   return (
-
-    <View style={styles.container}>
- 
-        <View>
-          <Image
-            style={{ width :589, height: 450}}
-            source={require("../assets/menu.jpg")}
-</View>
     <View style={styles.containrt}>
 
 
@@ -148,14 +140,12 @@ import React from "react";
           <Image
             style={{ width: 580, height: 450}}
             source={require("../assets/co1.jpg")}
-
           />
         </View>
-        <Text style={{fontSize:16,fontWeight:"500",marginBottom:7}}>Main Catigories</Text>
 <ScrollView horizontal showsHorizontalScrollIndicator={false}>
 
 {services.map((service,index) => (
-                <Pressable style={{margin:10,backgroundColor:"white",padding:20,borderRadius:10}} key={index}>
+                <Pressable style={{margin:10,backgroundColor:"white",padding:20,borderRadius:7}} key={index}>
                     <Image source={{uri:service.image}} style={{width:70,height:70}}/>
 
                     <Text style={{textAlign:"center",marginTop:10}}>{service.name}</Text>
@@ -166,7 +156,7 @@ import React from "react";
 
 </ScrollView>
 
-<View style={styles.container}>
+
 
         <ScrollView showsVerticalScrollIndicator={false}>
         {servicess.map((item,index) => (
@@ -227,8 +217,6 @@ import React from "react";
       </Pressable>
       ))}
       </ScrollView>
-
-      </View>
     </View>
   );
 };
@@ -236,26 +224,8 @@ import React from "react";
 export default Items;
 
 const styles = StyleSheet.create({
-
- 
-    container: {
-      
-      
-      backgroundColor: "#A78A6C",
-      // alignItems: "center",
-      //justifyContent: "center",
-    },
-    container2: {
-      flex: 1,
-      padding:10,
-      backgroundColor: "#713522",
-      // alignItems: "center",
-      //justifyContent: "center",
-    },
-
 containrt:{
 backgroundColor:"#F4F1EF"
 },
-
 
 });

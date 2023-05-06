@@ -122,16 +122,16 @@ export default function Profile({ navigation }) {
           <TouchableOpacity style={styles.button} onPress={handleEdit}>
             <text style={styles.statmentButton}>Edit </text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={handleSignOut} style={styles.SignInbutton}>
+          <TouchableOpacity onPress={handleSignOut} style={styles.Registerbutton}>
             <Text style={styles.statmentButton}>SignOut </Text>
           </TouchableOpacity>
 
-          <TouchableOpacity
+          {/* <TouchableOpacity
             onPress={() => navigation.navigate("Home")}
             style={styles.Registerbutton}
           >
             <Text style={styles.statmentButton}>TakeTour</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
 
           <TouchableOpacity onPress={handleChoosePhoto}>
             {profilePhoto ? (
