@@ -133,7 +133,7 @@ export default function Profile({ navigation }) {
             <Text style={styles.statmentButton}>TakeTour</Text>
           </TouchableOpacity> */}
 
-          <TouchableOpacity onPress={handleChoosePhoto}>
+          <TouchableOpacity>
             {profilePhoto ? (
               <Image
                 source={{ uri: profilePhoto }}
