@@ -55,6 +55,7 @@ export default function Profile({ navigation }) {
 
   const handleEdit = () => {
     setViewMode(false);
+    navigation.navigate("EditProfile");
   };
   const handleChoosePhoto = async () => {
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();

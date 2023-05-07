@@ -13,7 +13,7 @@ import Profile from "./Pages/Profile";
 import Home from "./Pages/Home";
 import Card from "./Pages/Card";
 import Ho from "./Pages/Ho";
-//import EditProfile from "./Pages/EditProfile";
+import EditProfile from "./Pages/EditProfile";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -26,7 +26,7 @@ export default function App() {
         }}
       >
         {/* <Stack.Screen name="Profile" component={Profile} /> */}
-         {/* <Stack.Screen name="EditProfile" component={EditProfile} />   */}
+         
         <Stack.Screen name="StartScreen" component={StartScreen} />
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="Register" component={RegisterScreen} />
@@ -37,7 +37,8 @@ export default function App() {
         <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Ho" component={Ho} />
-         <Stack.Screen name="Card" component={Card} /> 
+         <Stack.Screen name="Card" component={Card} />
+         <Stack.Screen name="EditProfile" component={EditProfile} />  
       </Stack.Navigator>
     </NavigationContainer>
   );
