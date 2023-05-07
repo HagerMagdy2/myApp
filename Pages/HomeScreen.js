@@ -14,7 +14,7 @@ export default function HomeScreen({ navigation }) {
     <View style={styles.container}>
       <Image
         style={styles.image}
-        source={require("../assets/Homee.jpg")}
+        source={require("../assets/wel.jpg")}
       ></Image>
       {/* <image source={require("../assets/cover.png")}/> */}
 
@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
     width: 600,
     height: 1080,
     position: "absolute",
+    
   },
   Registerbutton: {
     width: "50%",
