@@ -93,7 +93,7 @@ export default function Profile({ navigation }) {
     signOut(auth)
       .then(() => {
         // Sign-out successful.
-        navigation.navigate("HomeScreen");
+        navigation.navigate("StartScreen");
       })
       .catch((error) => {
         const errorCode = error.code;

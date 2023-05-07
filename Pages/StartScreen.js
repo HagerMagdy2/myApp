@@ -8,13 +8,13 @@ const StartScreen = ({navigation}) => {
     <View style={style.container}>
      
           <Image
-            style={{ width: "100%", height: "100%"}}
-            source={require("../assets/pstart.webp")}
+            style={style.image}
+            source={require("../assets/start10.jpg")}
           />
        
       
 <View>
- <TouchableOpacity  onPress={() => navigation.navigate('HomeScreen')} style={style.btnContainer}>
+ <TouchableOpacity  onPress={() => navigation.navigate('SignIn')} style={style.btnContainer}>
       
         <Text style={style.title}>Get Started</Text> 
   
@@ -27,10 +27,18 @@ const StartScreen = ({navigation}) => {
 
 const style = StyleSheet.create({
   container: {
-    flex: 1,
+   
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+  },
+  image: {
+    //flex: 1,
+    //justifyContent: 'center',
+    width: 590,
+    height: 1090,
+    position: "absolute",
+    
   },
   textContainer: {
     flex: 1,
@@ -65,30 +73,35 @@ const style = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  image: {
-    flex: 20,
-    justifyContent: 'center',
-    width: '100%',
+  // image: {
+  //   flex: 20,
+  //   justifyContent: 'center',
+  //   width: '100%',
    
-    resizeMode: 'contain',
-    top: 0,
-  },
-  title: {color: 'white', fontWeight: 'bold', fontSize: 18},
+  //   resizeMode: 'contain',
+  //   top: 0,
+  // },
+  title: {color: '#5B2413', fontWeight: 'bold', fontSize: 20},
   btnContainer: {
-    paddingHorizontal: 8,
+   // width: "50%",
+    borderRadius: 20,
+    height: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 30,
+    backgroundColor: '#FBEAB4',
+    // flexDirection: 'row',
+    paddingHorizontal: 100,
     paddingVertical: 6,
-    borderRadius: 5,
-    backgroundColor: "#713522",
-    alignSelf: "auto",
-    //marginHorizontal: '1%',
+    borderRadius: 50,
     marginBottom: 6,
     minWidth: "30%",
     textAlign: "center",
- 
+    position: "absolute",
+    bottom:-500,
+    right: -180,
+    width: 350,
   
-    
-    width: 589,
-    height: 80,
   },
 });
 
