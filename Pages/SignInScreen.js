@@ -127,6 +127,9 @@ export default function SignIn({ navigation }) {
       <TouchableOpacity onPress={() => navigation.navigate("Forgot")}>
         <Text style={styles.forgot_button}>Forgot Password?</Text>
       </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate("Register")}>
+        <Text style={styles.forgot_button}>Dont have Account ? Register Now..</Text>
+      </TouchableOpacity>
       <TouchableOpacity style={styles.button} onPress={handleSubmit}>
         <text style={styles.statmentButton}>Sign In</text>
       </TouchableOpacity>
@@ -135,7 +138,7 @@ export default function SignIn({ navigation }) {
         <GoogleButton style={styles.goglBtn} onClick={signin} />
         <TouchableOpacity
           style={styles.HomeBtn}
-          onPress={() => navigation.navigate("HomeScreen")}
+          onPress={() => navigation.navigate("StartScreen")}
         >
           <Text style={styles.statmentButton}> Home </Text>
         </TouchableOpacity>
@@ -171,7 +174,7 @@ const styles = StyleSheet.create({
     width: 350,
     height: 500,
     position: "absolute",
-    bottom: 650,
+    bottom: 700,
   },
 
   inputView: {
@@ -296,7 +299,7 @@ const styles = StyleSheet.create({
     fontFamily: "italic",
 
     //fontWeight: 'bold',
-    //fontSize: 25,
+    fontSize: 20,
     alignSelf: "center",
     paddingHorizontal: 8,
     paddingVertical: 6,
@@ -321,6 +324,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginBottom: 20,
     width: "80%",
+    fontSize:20,
   },
   // button: {
   //       backgroundColor: '#713522',

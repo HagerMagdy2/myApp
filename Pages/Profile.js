@@ -55,6 +55,7 @@ export default function Profile({ navigation }) {
 
   const handleEdit = () => {
     setViewMode(false);
+ //  navigation.navigate("EditProfile");
   };
   const handleChoosePhoto = async () => {
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
@@ -93,7 +94,7 @@ export default function Profile({ navigation }) {
     signOut(auth)
       .then(() => {
         // Sign-out successful.
-        navigation.navigate("HomeScreen");
+        navigation.navigate("StartScreen");
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -104,13 +105,15 @@ export default function Profile({ navigation }) {
   };
   return (
     <View style={styles.container}>
-      <Image
+     
+
+      {viewMode ? (
+        <View style={styles.container1} >
+           <Image
         style={styles.image}
         source={require("../assets/prof.jpg")}
       ></Image>
-
-      {viewMode ? (
-        <View>
+      <View>
           <Text style={styles.textStyle}>Email :{email}</Text>
 
           <Text style={styles.textStyle}>Name : {name}</Text>
@@ -118,26 +121,21 @@ export default function Profile({ navigation }) {
           <Text style={styles.textStyle}>Phone : {phone}</Text>
 
           <Text style={styles.textStyle}>Birthday : {birthday}</Text>
-
+          </View>
+          <View>
           <TouchableOpacity style={styles.button} onPress={handleEdit}>
             <text style={styles.statmentButton}>Edit </text>
           </TouchableOpacity>
           <TouchableOpacity onPress={handleSignOut} style={styles.SignInbutton}>
             <Text style={styles.statmentButton}>SignOut </Text>
           </TouchableOpacity>
-{/* 
-          <TouchableOpacity
-            onPress={() => navigation.navigate("Home")}
-            style={styles.Registerbutton}
-          >
-            <Text style={styles.statmentButton}>TakeTour</Text>
-          </TouchableOpacity> */}
+
 
           <TouchableOpacity>
             {profilePhoto ? (
               <Image
                 source={{ uri: profilePhoto }}
-                style={styles.profilePhoto2}
+                style={styles.profilePhoto}
               />
             ) : (
               <View style={styles.placeholder}>
@@ -146,8 +144,15 @@ export default function Profile({ navigation }) {
             )}
           </TouchableOpacity>
         </View>
+        </View>
       ) : (
-        <View>
+        <View style={styles.container2}>
+           <Image
+        style={styles.image}
+        source={require("../assets/prof.jpg")}
+      ></Image>
+      <View>
+      
           <Text styles={styles.textStyle}></Text>
           <TextInput
             style={styles.input}
@@ -158,7 +163,7 @@ export default function Profile({ navigation }) {
           />
           <Text styles={styles.textStyle}></Text>
           <TextInput
-            style={styles.inputE}
+            style={styles.input}
             value={email}
             onChangeText={setEmail}
             placeholder="Edit your Email"
@@ -166,7 +171,7 @@ export default function Profile({ navigation }) {
           />
           <Text styles={styles.textStyle}></Text>
           <TextInput
-            style={styles.inputP}
+            style={styles.input}
             value={phone}
             onChangeText={setPhone}
             placeholder="Edit your Phone number"
@@ -174,27 +179,30 @@ export default function Profile({ navigation }) {
             autoFocus
           />
           <TextInput
-            style={styles.inputB}
+            style={styles.input}
             placeholder="MM/DD/YYYY"
             value={birthday}
             onChangeText={setBirthday}
           />
-          <TouchableOpacity style={styles.SignInbutton} onPress={handleSave}>
+          <TouchableOpacity style={styles.Save} onPress={handleSave}>
             <text style={styles.statmentButton}>Save</text>
           </TouchableOpacity>
 
           <TouchableOpacity onPress={handleChoosePhoto}>
             {profilePhoto ? (
+              <View style={styles.container3} >
               <Image
                 source={{ uri: profilePhoto }}
-                style={styles.profilePhoto2}
+                style={styles.profilePhoto}
               />
+              </View>
             ) : (
-              <View style={styles.placeholder}>
+              <View style={styles.placeholder1}>
                 <Text style={styles.placeholderText}>Add a photo</Text>
               </View>
             )}
           </TouchableOpacity>
+        </View>
         </View>
       )}
     </View>
@@ -202,6 +210,26 @@ export default function Profile({ navigation }) {
 }
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  container2: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  container3: {
+    flex: 2,
+    
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  container1: {
+    
+   
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
@@ -215,16 +243,14 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   input: {
-    borderRadius: 7,
-    height: 40,
-    width: 400,
-    margin: 12,
-    borderWidth: 0.5,
-    padding: 5,
-    position: "absolute",
-  
-    right: -150,
-    bottom: -100,
+    width: 500,
+    padding: 10,
+    borderWidth: 1,
+    borderColor: '#CCCCCC',
+    borderRadius: 5,
+    marginBottom: 20,
+    bottom: -500,
+    fontSize : 20,
   },
   inputE: {
     borderRadius: 7,
@@ -292,8 +318,8 @@ const styles = StyleSheet.create({
     minWidth: "30%",
     textAlign: "center",
     position: "absolute",
-    bottom: -280,
-    right: 50,
+    bottom: -250,
+    right: -50,
     width: 130,
     height: 50,
   },
@@ -311,8 +337,27 @@ const styles = StyleSheet.create({
     minWidth: "30%",
     textAlign: "center",
     position: "absolute",
-    bottom: -280,
-    right: 50,
+    bottom: -350,
+    right: 120,
+    width: 130,
+    height: 50,
+  },
+  Save: {
+    width: "50%",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 30,
+    backgroundColor: "#713522",
+    // flexDirection: 'row',
+    paddingHorizontal: 100,
+    paddingVertical: 6,
+    borderRadius: 20,
+    marginBottom: 6,
+    minWidth: "30%",
+    textAlign: "center",
+    position: "absolute",
+    bottom: -300,
+    right: 120,
     width: 130,
     height: 50,
   },
@@ -332,8 +377,8 @@ const styles = StyleSheet.create({
     minWidth: "30%",
     textAlign: "center",
     position: "absolute",
-    bottom: -350,
-    right: 50,
+    bottom: -320,
+    right: -50,
     width: 130,
   },
   textStyle: {
@@ -342,7 +387,7 @@ const styles = StyleSheet.create({
 
     fontWeight: "bold",
     fontSize: 25,
-    alignSelf: "left",
+   // alignSelf: "left",
     paddingHorizontal: 8,
     paddingVertical: 6,
     borderRadius: 15,
@@ -357,8 +402,8 @@ const styles = StyleSheet.create({
     width: 150,
     height: 150,
     borderRadius: 10,
-    bottom: 300,
-    right: -70,
+    bottom: 500,
+    right: -20,
    
   },
   profilePhoto2: {
@@ -375,8 +420,18 @@ const styles = StyleSheet.create({
     backgroundColor: "#eee",
     alignItems: "center",
     justifyContent: "center",
-    bottom: 300,
-    right: -70,
+    bottom: 500,
+    right: -20,
+  },
+  placeholder1: {
+    width: 150,
+    height: 150,
+    borderRadius: 10,
+    backgroundColor: "#eee",
+    alignItems: "center",
+    justifyContent: "center",
+    bottom: 505,
+    right: -180,
   },
   placeholderText: {
     fontSize: 18,
