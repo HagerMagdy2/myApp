@@ -45,7 +45,7 @@ export default function App() {
 
         <Stack.Screen name="Cart" component={Cart} />
 
-         <Stack.Screen name="Card" component={Card} />
+        
          <Stack.Screen name="EditProfile" component={EditProfile} />  
 
       </Stack.Navigator>
