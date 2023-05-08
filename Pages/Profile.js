@@ -113,7 +113,7 @@ export default function Profile({ navigation }) {
         style={styles.image}
         source={require("../assets/prof.jpg")}
       ></Image>
-      
+      <View>
           <Text style={styles.textStyle}>Email :{email}</Text>
 
           <Text style={styles.textStyle}>Name : {name}</Text>
@@ -121,7 +121,7 @@ export default function Profile({ navigation }) {
           <Text style={styles.textStyle}>Phone : {phone}</Text>
 
           <Text style={styles.textStyle}>Birthday : {birthday}</Text>
-          
+          </View>
           <View>
           <TouchableOpacity style={styles.button} onPress={handleEdit}>
             <text style={styles.statmentButton}>Edit </text>

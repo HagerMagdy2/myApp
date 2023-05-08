@@ -13,6 +13,7 @@ import Profile from "./Pages/Profile";
 import Home from "./Pages/Home";
 import Card from "./Pages/Card";
 import Ho from "./Pages/Ho";
+import QRCode from 'react-native-qrcode-svg';
 import EditProfile from "./Pages/EditProfile";
 const Stack = createNativeStackNavigator();
 
@@ -25,7 +26,7 @@ export default function App() {
           
         }}
       >
-        {/* <Stack.Screen name="Profile" component={Profile} /> */}
+        <Stack.Screen name="Profile" component={Profile} />
          
         <Stack.Screen name="StartScreen" component={StartScreen} />
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
@@ -34,7 +35,7 @@ export default function App() {
         <Stack.Screen name="Forgot" component={ForgotPass} />
         <Stack.Screen name="Welcome" component={WelcomeScreen} />
         <Stack.Screen name="foo" component={foo} />
-        <Stack.Screen name="Profile" component={Profile} />
+        {/* <Stack.Screen name="Profile" component={Profile} /> */}
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Ho" component={Ho} />
          <Stack.Screen name="Card" component={Card} />
