@@ -118,7 +118,7 @@ export default function RegisterScreen({ navigation }) {
       <View>
         <TouchableOpacity
           style={styles.HomeBtn}
-          onPress={() => navigation.navigate("HomeScreen")}
+          onPress={() => navigation.navigate("StartScreen")}
         >
           <Text style={styles.statmentButton}> HOME </Text>
         </TouchableOpacity>
@@ -200,29 +200,14 @@ const styles = StyleSheet.create({
     bottom: 0,
     // right: 50,
   },
-  button: {
-    paddingHorizontal: 8,
-    paddingVertical: 6,
-    borderRadius: 50,
-    backgroundColor: "#713522",
-    alignSelf: "auto",
-    //marginHorizontal: '1%',
-    marginBottom: 6,
-    minWidth: "30%",
-    textAlign: "center",
-    position: "absolute",
-    bottom: 100,
-    right: 205,
-    width: 45,
-    height: 50,
-  },
+  
 
   statmentButton: {
     color: "#FFFCF8",
     fontFamily: "italic",
 
     fontWeight: "bold",
-    fontSize: 25,
+    fontSize: 20,
     alignSelf: "center",
     paddingHorizontal: 8,
     paddingVertical: 6,
@@ -242,12 +227,12 @@ const styles = StyleSheet.create({
     alignSelf: "auto",
     //marginHorizontal: '1%',
     marginBottom: 6,
-    minWidth: "30%",
+   // minWidth: "30%",
     textAlign: "center",
     position: "absolute",
     bottom: 200,
-    right: 205,
-    width: 45,
+    right: 68,
+    width: 445,
     height: 50,
   },
   HomeBtn: {
@@ -264,9 +249,9 @@ const styles = StyleSheet.create({
     textAlign: "center",
     position: "absolute",
 
-    right: -90,
-    width: 180,
-    bottom: -570,
+    right: -230,
+    width: 445,
+    bottom: -580,
     height: 50,
   },
   errorText: {
@@ -282,5 +267,6 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginBottom: 20,
     width: '80%',
+    fontSize:20,
 },
 });

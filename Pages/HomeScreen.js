@@ -14,7 +14,9 @@ export default function HomeScreen({ navigation }) {
     <View style={styles.container}>
       <Image
         style={styles.image}
-        source={require("../assets/wel.jpg")}
+        source={require("../assets/prof.jpg")}
+
+        
       ></Image>
       {/* <image source={require("../assets/cover.png")}/> */}
 
@@ -47,17 +49,16 @@ const styles = StyleSheet.create({
     //flex: 1,
     //justifyContent: 'center',
     width: 600,
-    height: 1080,
+    height: 1090,
     position: "absolute",
-    
+  
   },
   Registerbutton: {
     width: "50%",
     alignItems: "center",
     justifyContent: "center",
     marginTop: 30,
-    backgroundColor: "#713522",
-    // flexDirection: 'row',
+    backgroundColor: "#3D1509",    
     paddingHorizontal: 100,
     paddingVertical: 6,
     borderRadius: 20,
@@ -65,9 +66,9 @@ const styles = StyleSheet.create({
     minWidth: "30%",
     textAlign: "center",
     position: "absolute",
-    bottom: -300,
-    right: -100,
-    width: 130,
+    bottom: -350,
+    right: -150,
+    width: 300,
     height: 50,
   },
   SignInbutton: {
@@ -77,7 +78,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginTop: 30,
-    backgroundColor: "#713522",
+    backgroundColor: "#3D1509" ,
     // flexDirection: 'row',
     paddingHorizontal: 100,
     paddingVertical: 6,
@@ -86,9 +87,9 @@ const styles = StyleSheet.create({
     minWidth: "30%",
     textAlign: "center",
     position: "absolute",
-    bottom: -400,
-    right: -100,
-    width: 130,
+    bottom: -420,
+    right: -150,
+    width: 300,
   },
   statmentButton: {
     color: "#FFFCF8",

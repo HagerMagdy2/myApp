@@ -98,7 +98,9 @@ export default function EditProfile(navigation) {
             )}
           </TouchableOpacity>
         <Text style={styles.title}>Edit Profile</Text>
+        
         <TextInput
+        
           style={styles.input}
           placeholder="Name"
           value={name}
