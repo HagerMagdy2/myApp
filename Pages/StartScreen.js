@@ -98,7 +98,7 @@ const style = StyleSheet.create({
     minWidth: "30%",
     textAlign: "center",
     position: "absolute",
-    bottom:-500,
+    bottom:-20,
     right: -180,
     width: 350,
   
