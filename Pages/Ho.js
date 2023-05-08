@@ -32,12 +32,13 @@ export default function Ho({ navigation }) {
   }
   return (
     // <Services />
-    <Items />
-
+    
+<Items />  
     // {servicess.map((item, index) => (
     //   <DressItem item={item} key={index} />
     // ))}
-    // <DressItem item={item} key={index}/>
+    // <DressItem />
+    
   );
 }
 

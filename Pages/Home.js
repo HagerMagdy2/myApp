@@ -1,18 +1,25 @@
+import React, { useState } from "react";
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import {
+  createBottomTabNavigator,
+  BottomTabBar,
+} from "@react-navigation/bottom-tabs";
+import { Ionicons } from "@expo/vector-icons";
 
-import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import { createBottomTabNavigator ,BottomTabBar} from '@react-navigation/bottom-tabs';
-import { Ionicons } from '@expo/vector-icons';
-
-import WelcomeScreen from './WelcomeScreen';
-import Profile from './Profile';
-import Card from './Card';
-import Favorites from './Favorites';
-import Ho from './Ho'
-
+import WelcomeScreen from "./WelcomeScreen";
+import Profile from "./Profile";
+import Cart from "./Cart";
+import Favorites from "./Favorites";
+import Ho from "./Ho";
 
 const Tab = createBottomTabNavigator();
-export default function Home({navigation}) {
+export default function Home({  }) {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
@@ -20,31 +27,29 @@ export default function Home({navigation}) {
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
 
-          if (route.name === 'Home') {
-            iconName = focused ? 'home' : 'home-outline';
-          } else if (route.name === 'Profile') {
-            iconName = focused ? 'person' : 'person-outline';
-          } else if (route.name === 'Card') {
-            iconName = focused ? 'card' : 'card-outline';
-          } else if (route.name === 'Favorites') {
-            iconName = focused ? 'heart' : 'heart-outline';
+          if (route.name === "Home") {
+            iconName = focused ? "home" : "home-outline";
+          } else if (route.name === "Profile") {
+            iconName = focused ? "person" : "person-outline";
+          } else if (route.name === "Cart") {
+            iconName = focused ? "cart" : "cart-outline";
           }
+          // else if (route.name === 'Favorites') {
+          //   iconName = focused ? 'heart' : 'heart-outline';
+          // }
 
           // You can return any component that you like here!
           return <Ionicons name={iconName} size={size} color={color} />;
         },
       })}
-      
       tabBarOptions={{
-        activeTintColor: 'tomato',
-        inactiveTintColor: 'gray',
-        
+        activeTintColor: "tomato",
+        inactiveTintColor: "gray",
       }}
-     
     >
       <Tab.Screen name="Home" component={Ho} />
-      <Tab.Screen name="Card" component={Card} />
-      <Tab.Screen name="Favorites" component={Favorites} />
+      <Tab.Screen name="Cart" component={Cart} />
+      {/* // <Tab.Screen name="Favorites" component={Favorites} /> */}
       <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
   );
@@ -171,10 +176,6 @@ export default function Home({navigation}) {
 //   },
 // });
 
-
-
-
-
 // import { StatusBar } from "expo-status-bar";
 // import React from "react";
 // import {
@@ -224,11 +225,8 @@ export default function Home({navigation}) {
 //         password.length >= 6 &&
 //         password === confirmPassword
 //     );
-    
-//   };
 
-  
- 
+//   };
 
 //   // return (
 //   //   <View style={styles.container}>
@@ -238,13 +236,6 @@ export default function Home({navigation}) {
 //   //     <Text style={styles.cartText}>Cart Items: {cartItems.length}</Text>
 //   //   </View>
 //   // );
-
-
-
-
-
-
-
 
 //   return (
 //     <View style={styles.container}>
@@ -426,12 +417,8 @@ export default function Home({navigation}) {
 // //   },
 // // });
 
-
-
-
 // // import React, { useState } from 'react';
 // // import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
-
 
 // // export default function ProfilePage() {
 // //   const [profilePhoto, setProfilePhoto] = useState(null);
@@ -467,4 +454,3 @@ export default function Home({navigation}) {
 // //     </View>
 // //   );
 // // }
-
