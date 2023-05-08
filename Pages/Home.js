@@ -7,7 +7,7 @@ import { Ionicons } from '@expo/vector-icons';
 import WelcomeScreen from './WelcomeScreen';
 import Profile from './Profile';
 import Card from './Card';
-import Favorites from './Favorites';
+//import Favorites from './Favorites';
 import Ho from './Ho'
 
 
@@ -25,10 +25,11 @@ export default function Home({navigation}) {
           } else if (route.name === 'Profile') {
             iconName = focused ? 'person' : 'person-outline';
           } else if (route.name === 'Card') {
-            iconName = focused ? 'card' : 'card-outline';
-          } else if (route.name === 'Favorites') {
-            iconName = focused ? 'heart' : 'heart-outline';
-          }
+            iconName = focused ? 'cart' : 'cart-outline';
+          } 
+          // else if (route.name === 'Favorites') {
+          //   iconName = focused ? 'heart' : 'heart-outline';
+          // }
 
           // You can return any component that you like here!
           return <Ionicons name={iconName} size={size} color={color} />;
@@ -44,7 +45,7 @@ export default function Home({navigation}) {
     >
       <Tab.Screen name="Home" component={Ho} />
       <Tab.Screen name="Card" component={Card} />
-      <Tab.Screen name="Favorites" component={Favorites} />
+      {/* <Tab.Screen name="Favorites" component={Favorites} /> */}
       <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
   );

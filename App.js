@@ -13,7 +13,7 @@ import Profile from "./Pages/Profile";
 import Home from "./Pages/Home";
 import Card from "./Pages/Card";
 import Ho from "./Pages/Ho";
-import QRCode from 'react-native-qrcode-svg';
+//import QRCode from 'react-native-qrcode-svg';
 import EditProfile from "./Pages/EditProfile";
 const Stack = createNativeStackNavigator();
 
