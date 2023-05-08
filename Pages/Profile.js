@@ -250,6 +250,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginBottom: 20,
     bottom: -500,
+    fontSize : 20,
   },
   inputE: {
     borderRadius: 7,

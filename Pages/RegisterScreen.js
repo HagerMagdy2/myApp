@@ -282,5 +282,6 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginBottom: 20,
     width: '80%',
+    fontSize:20,
 },
 });

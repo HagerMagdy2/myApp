@@ -128,7 +128,7 @@ export default function SignIn({ navigation }) {
         <Text style={styles.forgot_button}>Forgot Password?</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => navigation.navigate("Register")}>
-        <Text style={styles.forgot_button}>Dont have account ? Register now</Text>
+        <Text style={styles.forgot_button}>Dont have Account ? Register Now..</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.button} onPress={handleSubmit}>
         <text style={styles.statmentButton}>Sign In</text>
@@ -324,6 +324,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginBottom: 20,
     width: "80%",
+    fontSize:20,
   },
   // button: {
   //       backgroundColor: '#713522',
