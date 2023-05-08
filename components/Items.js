@@ -183,14 +183,14 @@ import React from "react";
           <Text
             style={{
               width: 83,
-              fontSize: 17,
+              fontSize: 24,
               fontWeight: "500",
               marginBottom: 7,
             }}
           >
             {item.name}
           </Text>
-          <Text style={{ width: 60, color: "gray", fontSize: 15 }}>
+          <Text style={{ width: 60, color: "gray", fontSize: 20 }}>
             ${item.price}
           </Text>
         </View>
