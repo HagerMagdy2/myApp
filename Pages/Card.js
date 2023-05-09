@@ -17,7 +17,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { ScreenStackHeaderRightView } from "react-native-screens";
 import Services from "../components/Services";
 import Items from "../components/Items";
-import QRCode from 'react-native-qrcode-svg';
+//import QRCode from 'react-native-qrcode-svg';
 
 export default function Card({ navigation }) {
   // const [items,setItems] = useState([]);

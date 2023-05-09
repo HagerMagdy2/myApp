@@ -8,15 +8,13 @@ import {
   Image,
 } from "react-native";
 import { Text } from "react-native";
-
 export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <Image
         style={styles.image}
-        source={require("../assets/prof.jpg")}
-
-        
+        //source={require("../assets/Homee.jpg")}
+        source={require("../assets/wel.jpg")}
       ></Image>
       {/* <image source={require("../assets/cover.png")}/> */}
 
@@ -27,7 +25,6 @@ export default function HomeScreen({ navigation }) {
         >
           <Text style={styles.statmentButton}>SignIn </Text>
         </TouchableOpacity>
-
         <TouchableOpacity
           onPress={() => navigation.navigate("Register")}
           style={styles.Registerbutton}
@@ -49,16 +46,17 @@ const styles = StyleSheet.create({
     //flex: 1,
     //justifyContent: 'center',
     width: 600,
-    height: 1090,
+    height: 1080,
     position: "absolute",
-  
+
   },
   Registerbutton: {
     width: "50%",
     alignItems: "center",
     justifyContent: "center",
     marginTop: 30,
-    backgroundColor: "#3D1509",    
+    backgroundColor: "#713522",
+    // flexDirection: 'row',
     paddingHorizontal: 100,
     paddingVertical: 6,
     borderRadius: 20,
@@ -66,9 +64,9 @@ const styles = StyleSheet.create({
     minWidth: "30%",
     textAlign: "center",
     position: "absolute",
-    bottom: -350,
-    right: -150,
-    width: 300,
+    bottom: -300,
+    right: -100,
+    width: 130,
     height: 50,
   },
   SignInbutton: {
@@ -78,7 +76,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginTop: 30,
-    backgroundColor: "#3D1509" ,
+    backgroundColor: "#713522",
     // flexDirection: 'row',
     paddingHorizontal: 100,
     paddingVertical: 6,
@@ -87,14 +85,13 @@ const styles = StyleSheet.create({
     minWidth: "30%",
     textAlign: "center",
     position: "absolute",
-    bottom: -420,
-    right: -150,
-    width: 300,
+    bottom: -400,
+    right: -100,
+    width: 130,
   },
   statmentButton: {
     color: "#FFFCF8",
     fontFamily: "italic",
-
     fontWeight: "bold",
     fontSize: 25,
     alignSelf: "center",
