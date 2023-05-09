@@ -1,45 +1,58 @@
 import React from 'react';
 import {Text, StyleSheet, View, Image,TouchableOpacity} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-
-
 const StartScreen = ({navigation}) => {
   return (
-    <View style={style.container}>
-     
-          <Image
-            style={style.image}
-            source={require("../assets/start10.jpg")}
-          />
-       
-      
-<View>
- <TouchableOpacity  onPress={() => navigation.navigate('SignIn')} style={style.btnContainer}>
-      
-        <Text style={style.title}>Get Started</Text> 
-  
-   </TouchableOpacity>
-   </View>  
+    <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
+      <View style={{height:400}}>
+        {/* <Image
+           style={style.image}//{
+          //   width: '100%',
+          //   resizeMode: 'contain',
+          //   top: -150,
+          // }}
+          source={require('../assets/photo.png')}
+        /> */}
       </View>
-      
+       <View>
+          <Image
+            style={{ width: 580, height: 450,top:-400}}
+            source={require("../assets/7.jpeg")}
+          />
+        </View>
+      <View style={style.textContainer}>
+        <View>
+          <Text style={{fontSize: 32, fontWeight: 'bold', textAlign: 'center'}}>
+            Delicious Coffee
+          </Text>
+          <Text
+            style={{
+              marginTop: 20,
+              fontSize: 22,
+              textAlign: 'center',
+              color: 'grey',
+            }}>
+            We help you to find best and delicious drink
+          </Text>
+        </View>
+        <View style={style.indicatorContainer}>
+          <View style={style.currentIndicator} />
+          <View style={style.indicator} />
+          <View style={style.indicator} />
+        </View>
+        {/* <TouchableOpacity onPress={() => navigation.navigate('Home')}
+          >title="Get Started"</TouchableOpacity> */}
+ <TouchableOpacity  onPress={() => navigation.navigate('HomeScreen')} style={style.btnContainer}>
+       <View style={style.btnContainer}> 
+        <Text style={style.title}>Get Started</Text> 
+      </View> 
+   </TouchableOpacity>
+         
+      </View>
+    </SafeAreaView>
   );
 };
-
 const style = StyleSheet.create({
-  container: {
-   
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  image: {
-    //flex: 1,
-    //justifyContent: 'center',
-    width: 590,
-    height: 1090,
-    position: "absolute",
-    
-  },
   textContainer: {
     flex: 1,
     paddingHorizontal: 50,
@@ -73,36 +86,21 @@ const style = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  // image: {
-  //   flex: 20,
-  //   justifyContent: 'center',
-  //   width: '100%',
+  image: {
+    flex: 20,
+    justifyContent: 'center',
+    width: '100%',
    
-  //   resizeMode: 'contain',
-  //   top: 0,
-  // },
-  title: {color: '#5B2413', fontWeight: 'bold', fontSize: 20},
+    resizeMode: 'contain',
+    top: 0,
+  },
+  title: {color: 'white', fontWeight: 'bold', fontSize: 18},
   btnContainer: {
-   // width: "50%",
-    borderRadius: 20,
-    height: 50,
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: 30,
-    backgroundColor: '#FBEAB4',
-    // flexDirection: 'row',
-    paddingHorizontal: 100,
-    paddingVertical: 6,
-    borderRadius: 50,
-    marginBottom: 6,
-    minWidth: "30%",
-    textAlign: "center",
-    position: "absolute",
-    bottom:-20,
-    right: -180,
-    width: 350,
-  
+    backgroundColor: "#713522",
+    height: 60,
+    borderRadius: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
-
 export default StartScreen;

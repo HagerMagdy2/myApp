@@ -138,7 +138,7 @@ export default function SignIn({ navigation }) {
         <GoogleButton style={styles.goglBtn} onClick={signin} />
         <TouchableOpacity
           style={styles.HomeBtn}
-          onPress={() => navigation.navigate("StartScreen")}
+          onPress={() => navigation.navigate("HomeScreen")}
         >
           <Text style={styles.statmentButton}> Home </Text>
         </TouchableOpacity>
